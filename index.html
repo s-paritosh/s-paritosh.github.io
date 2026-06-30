@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Portfolio of Paritosh Sharma, a Brand Implementation & Project Design professional specializing in corporate branding rollouts, production-ready artwork, and project coordination across large-scale retail and automotive environments.">
+<title>Paritosh Sharma | Brand Implementation & Project Design</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --bg-body: #EBF1F6;
+    --bg-cv: rgba(255, 255, 255, 0.88);
+    --text-main: #4A5568;
+    --text-heading: #090D16;
+    --text-li: #232E3C;
+    --accent: #1A3E68;
+    --accent-hover: #0d2138;
+    --border: rgba(26, 62, 104, 0.14);
+    --btn-primary-text: #ffffff;
+    --divider: rgba(26, 62, 104, 0.28);
+    
+    --bg-grad-1: rgba(244,247,251,1);
+    --bg-grad-2: rgba(225,235,245,1);
+    --bg-grad-3: rgba(213,225,237,1);
+    --bg-grad-4: rgba(238,243,248,1);
+
+    --ease-curve: cubic-bezier(0.16,1,0.3,1);
+    --transition-quick: .35s var(--ease-curve);
+    --transition-base: .4s var(--ease-curve);
+    --transition-slow: .6s var(--ease-curve);
+    --fade-fast: 0.3s ease;
+    --fade-base: 0.5s ease;
+}
+
+[data-theme="dark"] {
+    --bg-body: #0F172A;
+    --bg-cv: rgba(30, 41, 59, 0.85);
+    --text-main: #94A3B8;
+    --text-heading: #F8FAFC;
+    --text-li: #E2E8F0;
+    --accent: #38BDF8;
+    --accent-hover: #7DD3FC;
+    --border: rgba(56, 189, 248, 0.2);
+    --btn-primary-text: #0F172A;
+    --divider: rgba(56, 189, 248, 0.3);
+
+    --bg-grad-1: rgba(15,23,42,1);
+    --bg-grad-2: rgba(30,41,59,1);
+    --bg-grad-3: rgba(15,23,42,1);
+    --bg-grad-4: rgba(2,6,23,1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg-body);
+    background-image:
+        radial-gradient(at 0% 0%, var(--bg-grad-1) 0, transparent 50%),
+        radial-gradient(at 100% 0%, var(--bg-grad-2) 0, transparent 50%),
+        radial-gradient(at 100% 100%, var(--bg-grad-3) 0, transparent 50%),
+        radial-gradient(at 0% 100%, var(--bg-grad-4) 0, transparent 50%);
+    min-height: 100vh;
+    padding: 60px 24px;
+    display: flex;
+    justify-content: center;
+    overflow-x: hidden;
+    font-family: 'Inter', sans-serif;
+    color: var(--text-main);
+    transition: background var(--fade-base);
+    animation: fadeIn 1s cubic-bezier(0.16,1,0.3,1);
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at 50% 30%, rgba(255,255,255,0.05) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.top-blur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    pointer-events: none;
+    z-index: 999;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 35%, rgba(0,0,0,0) 100%);
+}
+
+.cv {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1000px;
+    background: var(--bg-cv);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 64px 72px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.05), 0 8px 20px rgba(0,0,0,0.03);
+    transition: transform var(--transition-slow), box-shadow var(--transition-slow), border-color var(--transition-slow), background var(--fade-base);
+}
+
+.cv:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent);
+    box-shadow: 0 35px 70px rgba(0,0,0,0.08), 0 12px 30px rgba(0,0,0,0.04);
+}
+.theme-toggle {
+    position: absolute;
+    top: 32px;
+    right: 32px;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-heading);
+    padding: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 1;
+    transition: background var(--fade-fast), color var(--fade-fast);
+}
+.theme-toggle:hover {
+    background: var(--accent);
+    color: var(--btn-primary-text);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+    margin-bottom: 24px;
+    margin-top: 10px;
+}
+
+.header-right {
+    text-align: right;
+}
+
+h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(34px, 4vw, 48px);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -1.2px;
+    color: var(--text-heading);
+    margin-bottom: 8px;
+    transition: color var(--fade-base);
+}
+
+.role {
+    font-size: clamp(13px, 1.6vw, 16px);
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.3px;
+}
+
+.contact-item {
+    font-size: 13px;
+    line-height: 1.8;
+    color: var(--text-main);
+}
+
+.contact-item a {
+    color: inherit;
+    text-decoration: none;
+    position: relative;
+    transition: color var(--transition-quick);
+}
+
+.contact-item a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    height: 1px;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform var(--transition-quick);
+}
+
+.contact-item a[href^="mailto:"]::after, .contact-item a[href*="linkedin.com"]::after {
+    background: var(--accent);
+}
+
+.contact-item a:hover {
+    color: var(--accent);
+}
+
+.contact-item a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background var(--fade-fast), color var(--fade-fast), border-color var(--fade-fast), transform var(--fade-fast);
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: var(--btn-primary-text);
+    border: 1px solid var(--accent);
+}
+
+.btn-primary:hover {
+    background: var(--accent-hover);
+    border-color: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--text-heading);
+    border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-2px);
+}
+
+.scroll-indicator {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-main);
+    text-decoration: none;
+    margin-top: 10px;
+    opacity: 0.7;
+    transition: opacity var(--fade-fast), color var(--fade-base);
+}
+.scroll-indicator:hover {
+    opacity: 1;
+    color: var(--accent);
+}
+
+.divider {
+    width: 100%;
+    height: 1px;
+    margin-bottom: 32px;
+    background: linear-gradient(to right, transparent, var(--divider) 20%, var(--divider) 80%, transparent);
+}
+
+section {
+    margin-bottom: 36px;
+    transition: transform var(--transition-base);
+}
+
+section:hover {
+    transform: translateX(4px);
+}
+
+.section-title {
+    position: relative;
+    margin-bottom: 16px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 32px;
+    height: 1.5px;
+    background: var(--accent);
+    transition: width var(--transition-base);
+}
+
+section:hover .section-title::after {
+    width: 54px;
+}
+
+.profile {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--text-li);
+    margin-bottom: 24px;
+}
+
+.job {
+    margin-bottom: 24px;
+}
+
+.job-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 4px;
+}
+
+.job-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-heading);
+}
+
+.job-date {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.company {
+    margin-bottom: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 8px;
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: var(--text-li);
+    transition: var(--transition-base);
+}
+
+li::before {
+    content: '';
+    position: absolute;
+    left: 2px;
+    top: 8px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--accent);
+    transition: var(--transition-base);
+}
+
+li:hover {
+    transform: translateX(3px);
+    color: var(--text-heading);
+}
+
+li:hover::before {
+    transform: scale(1.5);
+}
+
+.two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+}
+
+.education {
+    margin-bottom: 18px;
+}
+
+.edu-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-heading);
+}
+
+.education p {
+    margin-top: 2px;
+    font-size: 13px;
+    line-height: 1.65;
+    color: var(--text-main);
+}
+
+.interests {
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: var(--text-li);
+}
+@media screen and (max-width: 960px) {
+    body { padding: 30px 14px; }
+    .cv { padding: 54px 28px; border-radius: 20px; }
+    header { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .header-right { text-align: left; }
+    .two-column { grid-template-columns: 1fr; gap: 32px; }
+    h1 { font-size: 38px; }
+    .theme-toggle { top: 16px; right: 16px; }
+}
+
+@media screen and (max-width: 768px) {
+    .btn-print { display: none; }
+    .btn { padding: 13px 20px; }
+    .contact-item { overflow-wrap: anywhere; }
+}
+
+@media (hover: none) {
+    section:hover, .cv:hover, li:hover {
+        transform: none;
+    }
+    section:hover .section-title::after {
+        width: 32px;
+    }
+    li:hover::before {
+        transform: none;
+    }
+    li:hover {
+        color: var(--text-li);
+    }
+}
+
+@media screen and (max-width: 400px) {
+    body { padding: 15px 10px; }
+    .cv { padding: 40px 20px; }
+    h1 { font-size: 30px; }
+    .action-buttons { flex-direction: column; width: 100%; }
+    .btn { justify-content: center; width: 100%; }
+}
+@page {
+    size: A4;
+    margin: 14mm 16mm;
+}
+
+@media print {
+    html, body {
+        width: auto !important;
+        height: auto;
+        background: #FFFFFF !important;
+    }
+    
+    body { padding: 0 !important; animation: none; }
+    
+    .no-print, body::before, .top-blur, .theme-toggle, .action-buttons, .scroll-indicator {
+        display: none !important;
+    }
+
+    .cv {
+        width: 100%; max-width: 100%; border: none !important; border-radius: 0; box-shadow: none !important;
+        background: #FFFFFF !important; padding: 0 !important; transform: none !important;
+    }
+
+    .two-column {
+        gap: 26pt !important;
+    }
+    h1, .job-title, .edu-title { color: #000000 !important; }
+    .role, .company, .section-title { color: #1A3E68 !important; }
+    .profile, li, .interests, .education p, .contact-item { color: #333333 !important; }
+    
+    h1 { font-size: 30pt !important; margin-bottom: 8px !important; }
+    .role { font-size: 13pt !important; }
+    .contact-item { font-size: 10pt !important; }
+    .section-title { font-size: 11pt !important; margin-bottom: 16px !important; }
+    .profile, li, .interests, .education p { font-size: 10.5pt !important; line-height: 1.5 !important; }
+    .job-title { font-size: 11pt !important; }
+    .company, .edu-title { font-size: 10.5pt !important; }
+    .job-date { font-size: 9.5pt !important; }
+
+    section { margin-bottom: 15pt !important; page-break-inside: avoid; break-inside: avoid; transform: none !important; }
+    .job { margin-bottom: 11pt !important; page-break-inside: avoid; break-inside: avoid; }
+    .divider { margin-bottom: 13pt !important; background: rgba(0,0,0,0.2) !important; }
+    li { margin-bottom: 4pt !important; transform: none !important; }
+    .cv:hover, li:hover { transform: none !important; }
+    a { color: inherit !important; text-decoration: none !important; }
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="top-blur"></div>
+
+<main class="cv">
+    
+    <button class="theme-toggle" onclick="toggleTheme()" id="theme-btn" aria-label="Toggle dark mode">☀</button>
+
+    <header>
+        <div>
+            <h1>PARITOSH SHARMA</h1>
+            <div class="role">Brand Implementation | Project Design</div>
+        </div>
+        <div class="header-right">
+            <div class="contact-item">Delhi NCR, India</div>
+            <div class="contact-item"><a href="mailto:jobs.paritosh@gmail.com">jobs.paritosh@gmail.com</a></div>
+            <div class="contact-item"><a href="https://www.linkedin.com/in/paritosh-sharma-96986b37a" target="_blank" rel="noopener noreferrer">linkedin.com/in/paritosh-sharma</a></div>
+        </div>
+    </header>
+
+    <div class="action-buttons">
+        <a href="#" class="btn btn-primary btn-print" onclick="window.print(); return false;">Print / Save as PDF</a>
+        <a href="mailto:jobs.paritosh@gmail.com" class="btn btn-secondary">Let's Connect</a>
+    </div>
+
+    <div class="divider"></div>
+
+    <section>
+        <h2 class="section-title">Profile</h2>
+        <div class="profile">
+            Brand Implementation & Project Design professional experienced in translating corporate brand guidelines into production-ready assets for nationwide retail and automotive branding projects. Skilled in coordinating design, production, and execution while ensuring consistent brand implementation across physical environments.
+        </div>
+        
+        <a href="#experience" class="scroll-indicator">View Experience ↓</a>
+    </section>
+
+    <section id="experience">
+        <h2 class="section-title">Experience</h2>
+        <div class="job">
+            <div class="job-top">
+                <div class="job-title">Project & Design Executive</div>
+                <div class="job-date">Sep 2025 – Present</div>
+            </div>
+            <div class="company">Saksham Signs Pvt. Ltd.</div>
+            <ul>
+                <li>Coordinated brand implementation for an ongoing nationwide automotive branding rollout — 500+ dealership sites to date — translating Head Office brand guidelines into production-ready fascia layouts and environmental graphics.</li>
+                <li>Adapted standard brand assets to individual site conditions, maintaining brand compliance while reducing approval revisions.</li>
+                <li>Coordinated artwork approvals, production tracking, and stakeholder communication across regional teams and dealerships.</li>
+                <li>Prepared production-ready artwork for automotive and retail branding projects, ensuring corporate identity compliance before manufacturing.</li>
+            </ul>
+        </div>
+        
+        <div class="job">
+            <div class="job-top">
+                <div class="job-title">Freelance Designer</div>
+                <div class="job-date">Jul 2025 – Aug 2025</div>
+            </div>
+            <div class="company">Freelance</div>
+            <ul>
+                <li>Designed digital illustrations and marketing creatives using Adobe Creative Suite.</li>
+                <li>Delivered client revisions and production-ready visual assets based on project requirements.</li>
+            </ul>
+        </div>
+    </section>
+
+    <div class="two-column">
+        <div>
+            <section>
+                <h2 class="section-title">Skills</h2>
+                <ul>
+                    <li>Project Coordination</li>
+                    <li>Brand Asset Adaptation</li>
+                    <li>Production Artwork Preparation</li>
+                    <li>Corporate Identity Rollout</li>
+                    <li>Environmental Graphics</li>
+                    <li>Large-Format Print Production</li>
+                    <li>Stakeholder Communication</li>
+                    <li>Pre-Press Verification</li>
+                    <li>Visual Communication</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="section-title">Tools</h2>
+                <ul>
+                    <li><strong>Design:</strong> Adobe Illustrator, Adobe Photoshop, CorelDRAW</li>
+                    <li><strong>Motion & Video:</strong> After Effects (Motion Graphics, Basic Editing)</li>
+                    <li><strong>Productivity:</strong> Microsoft Excel, Microsoft Office</li>
+                    <li><strong>Languages:</strong> English (Professional), Hindi (Native)</li>
+                </ul>
+            </section>
+        </div>
+
+        <div>
+            <section>
+                <h2 class="section-title">Professional Strengths</h2>
+                <ul>
+                    <li>Brand Guideline Interpretation</li>
+                    <li>Production-Focused Design Thinking</li>
+                    <li>Execution Coordination</li>
+                    <li>Structured Documentation</li>
+                    <li>Detail-Oriented Quality Control</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="section-title">Interests</h2>
+                <div class="interests">
+                    Illustration • Corporate Branding • Environmental Graphics • Visual Systems • Design Process
+                </div>
+            </section>
+
+            <section>
+                <h2 class="section-title">Education</h2>
+                <div class="education">
+                    <div class="edu-title">Adobe Creative Suite & Animation Training</div>
+                    <p>MAAC, Preet Vihar | 2023 – 2025</p>
+                </div>
+                <div class="education">
+                    <div class="edu-title">Bachelor of Business Administration (BBA)</div>
+                    <p>Delhi Metropolitan Education (GGSIPU)<br>2020 – 2023 | 85%</p>
+                </div>
+                <div class="education">
+                    <div class="edu-title">Class XII (Commerce)</div>
+                    <p>CBSE | 2020 | 75.4%</p>
+                </div>
+            </section>
+        </div>
+    </div>
+</main>
+
+<script>
+    function applyTheme(isDark) {
+        const html = document.documentElement;
+        const btn = document.getElementById('theme-btn');
+        if (isDark) {
+            html.setAttribute('data-theme', 'dark');
+            btn.textContent = '☾';
+            btn.setAttribute('aria-label', 'Switch to light mode');
+        } else {
+            html.removeAttribute('data-theme');
+            btn.textContent = '☀';
+            btn.setAttribute('aria-label', 'Switch to dark mode');
+        }
+    }
+
+    function toggleTheme() {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        applyTheme(!isDark);
+        try {
+            localStorage.setItem('theme', !isDark ? 'dark' : 'light');
+        } catch (e) {
+            // localStorage unavailable in this environment (e.g. some embedded previews) — theme still applies, just won't persist across reloads here.
+        }
+    }
+
+    (function initTheme() {
+        try {
+            const saved = localStorage.getItem('theme');
+            if (saved === 'dark') applyTheme(true);
+        } catch (e) {
+            // localStorage unavailable — page loads in default light theme.
+        }
+    })();
+</script>
+
+</body>
+</html>
