@@ -8,6 +8,24 @@
 <meta name="description" content="Portfolio of Paritosh Sharma, a Brand Implementation & Project Design professional specializing in corporate branding rollouts, production-ready artwork, and project coordination across large-scale retail and automotive environments.">
 <title>Paritosh Sharma | Brand Implementation & Project Design</title>
 <link rel="icon" type="image/png" href="favicon.png">
+<link rel="canonical" href="https://s-paritosh.github.io/">
+<meta name="theme-color" content="#1A3E68">
+
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://s-paritosh.github.io/">
+<meta property="og:title" content="Paritosh Sharma | Brand Implementation & Project Design">
+<meta property="og:description" content="Portfolio of Paritosh Sharma, a Brand Implementation & Project Design professional specializing in corporate branding rollouts, production-ready artwork, and project coordination across large-scale retail and automotive environments.">
+<meta property="og:image" content="https://s-paritosh.github.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Paritosh Sharma | Brand Implementation & Project Design">
+<meta name="twitter:description" content="Portfolio of Paritosh Sharma, a Brand Implementation & Project Design professional specializing in corporate branding rollouts, production-ready artwork, and project coordination across large-scale retail and automotive environments.">
+<meta name="twitter:image" content="https://s-paritosh.github.io/og-image.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
@@ -509,6 +527,29 @@ li:hover::before {
 }
 </style>
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Paritosh Sharma",
+  "jobTitle": "Brand Implementation & Project Design",
+  "url": "https://s-paritosh.github.io/",
+  "email": "mailto:jobs.paritosh@gmail.com",
+  "sameAs": [
+    "https://www.linkedin.com/in/paritosh-sharma-96986b37a"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressRegion": "Delhi NCR",
+    "addressCountry": "IN"
+  },
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Saksham Signs Pvt. Ltd."
+  }
+}
+</script>
+
 </head>
 
 <body>
@@ -517,7 +558,7 @@ li:hover::before {
 
 <main class="cv">
     
-    <button class="theme-toggle" onclick="toggleTheme()" id="theme-btn" aria-label="Toggle dark mode">☀</button>
+    <button class="theme-toggle" onclick="toggleTheme()" id="theme-btn" aria-label="Toggle dark mode"><span aria-hidden="true">☀</span></button>
 
     <header>
         <div>
@@ -646,13 +687,14 @@ li:hover::before {
     function applyTheme(isDark) {
         const html = document.documentElement;
         const btn = document.getElementById('theme-btn');
+        const glyph = btn.querySelector('span');
         if (isDark) {
             html.setAttribute('data-theme', 'dark');
-            btn.textContent = '☾';
+            glyph.textContent = '☾';
             btn.setAttribute('aria-label', 'Switch to light mode');
         } else {
             html.removeAttribute('data-theme');
-            btn.textContent = '☀';
+            glyph.textContent = '☀';
             btn.setAttribute('aria-label', 'Switch to dark mode');
         }
     }
