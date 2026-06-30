@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://s-paritosh.github.io/sitemap.xml
