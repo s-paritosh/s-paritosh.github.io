@@ -45,6 +45,7 @@
     --fade-fast: 0.3s ease;
     --fade-base: 0.5s ease;
 }
+/* Theme */
 [data-theme="dark"] {
     --bg-body: #0F172A;
     --bg-cv: rgba(30, 41, 59, 0.85);
@@ -105,7 +106,7 @@ body::before {
     z-index: 999;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    /* FIX: Safari requires -webkit-mask-image */
+    
     -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 35%, rgba(0,0,0,0) 100%);
     mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 35%, rgba(0,0,0,0) 100%);
 }
@@ -146,7 +147,7 @@ body::before {
     font-size: 16px;
     line-height: 1;
     transition: background var(--fade-fast), color var(--fade-fast), border-color var(--fade-fast), transform var(--fade-fast);
-    /* contain the icon swap */
+    
     overflow: hidden;
 }
 .theme-toggle:hover {
@@ -154,7 +155,6 @@ body::before {
     color: var(--btn-primary-text);
 }
 
-/* Icon swap — two SVGs overlap; CSS class drives which is visible */
 .toggle-icon {
     position: absolute;
     width: 16px;
@@ -373,7 +373,7 @@ li::before {
     content: '';
     position: absolute;
     left: 2px;
-    /* FIX: em-based offset is safer than hardcoded 8px across font sizes */
+    
     top: 0.52em;
     width: 4px;
     height: 4px;
@@ -413,12 +413,7 @@ li:hover::before {
     color: var(--text-li);
 }
 
-/* ── ENTRANCE ANIMATION ─────────────────────────────────────────────
-   Runs once per browser session (sessionStorage gate in JS).
-   Applied via .first-visit class on <html> so it can be toggled off.
-   Uses opacity + blur on .cv only — no filter on body, which avoids
-   the stacking-context bug that breaks position:fixed children.
-   ──────────────────────────────────────────────────────────────── */
+/* Animations */
 .first-visit .cv {
     animation: cvReveal 1.4s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
@@ -433,6 +428,7 @@ li:hover::before {
     }
 }
 
+/* Responsive */
 @media screen and (max-width: 960px) {
     body { padding: 30px 14px; }
     .cv { padding: 54px 28px; border-radius: 20px; }
@@ -485,6 +481,7 @@ li:hover::before {
         animation-iteration-count: 1 !important;
     }
 }
+/* Print */
 @page {
     size: A4;
     margin: 14mm 16mm;
@@ -496,7 +493,7 @@ li:hover::before {
         background: #FFFFFF !important;
     }
     body { padding: 0 !important; }
-    /* FIX: suppress entrance animation in print so filter doesn't persist */
+    
     .first-visit .cv {
         animation: none !important;
         opacity: 1 !important;
@@ -694,13 +691,12 @@ li:hover::before {
     </div>
 </main>
 <script>
-/* First-visit gate: animation runs once per browser session */
+
 if (!sessionStorage.getItem('visited')) {
     document.documentElement.classList.add('first-visit');
     sessionStorage.setItem('visited', '1');
 }
 
-/* Email obfuscation — assembled at runtime so it never appears in raw HTML */
 (function buildEmail() {
     const u = 'jobs.paritosh';
     const d = 'gmail.com';
@@ -713,13 +709,13 @@ if (!sessionStorage.getItem('visited')) {
     const btn = document.getElementById('email-btn');
     if (!btn) return;
 
-    /* store mailto for the click handler */
+    
     btn.dataset.mailto = mailto;
 
     btn.addEventListener('click', function(e) {
         e.preventDefault();
 
-        /* if already fired once this session, skip burst and go straight */
+        
         if (sessionStorage.getItem('burstFired')) {
             window.location.href = btn.dataset.mailto;
             return;
@@ -734,7 +730,6 @@ if (!sessionStorage.getItem('visited')) {
     });
 })();
 
-/* Geometric particle burst — 12 small shapes radiate from the button centre */
 function burstParticles(origin) {
     const rect   = origin.getBoundingClientRect();
     const cx     = rect.left + rect.width  / 2;
@@ -764,7 +759,7 @@ function burstParticles(origin) {
             marginTop:       -(size / 2) + 'px',
             background:      shape === 'triangle' ? 'transparent' : 'var(--accent)',
             borderRadius:    shape === 'circle'   ? '50%'         : '1px',
-            /* triangle via border trick */
+            
             borderLeft:      shape === 'triangle' ? (size / 2) + 'px solid transparent' : '',
             borderRight:     shape === 'triangle' ? (size / 2) + 'px solid transparent' : '',
             borderBottom:    shape === 'triangle' ? size + 'px solid var(--accent)'     : '',
@@ -780,7 +775,7 @@ function burstParticles(origin) {
 
         frag.appendChild(p);
 
-        /* trigger animation on next frame */
+        
         requestAnimationFrame(function() {
             requestAnimationFrame(function() {
                 p.style.transform = 'translate(' + tx + 'px,' + ty + 'px) rotate(' + (angle * 1.2) + 'deg)';
@@ -788,7 +783,7 @@ function burstParticles(origin) {
             });
         });
 
-        /* remove from DOM after animation */
+        
         setTimeout(function() { p.parentNode && p.parentNode.removeChild(p); }, 780 + delay);
     }
 
