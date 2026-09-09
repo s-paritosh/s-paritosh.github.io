@@ -191,19 +191,12 @@ body::before {
   letter-spacing:-.4px; line-height:1.15; margin-bottom:24px;
 }
 
-.ctx-strip {
-  display:grid; grid-template-columns:repeat(3,1fr);
-  gap:1px; background:var(--strip-gap);
-  border:1px solid var(--border); border-radius:12px;
-  overflow:hidden; margin-bottom:32px;
+.proj-summary {
+  font-size:13px; line-height:1.75;
+  color:var(--text-main); opacity:.7;
+  margin-bottom:28px; max-width:62ch;
+  letter-spacing:.1px;
 }
-.ctx-cell { background:var(--bg-cell); padding:16px 18px; }
-.ctx-l {
-  font-size:10px; font-weight:600;
-  letter-spacing:1.4px; text-transform:uppercase;
-  color:var(--text-main); opacity:.55; margin-bottom:5px;
-}
-.ctx-v { font-size:13.5px; font-weight:600; color:var(--text-head); line-height:1.35; }
 
 .hero {
   width:100%; aspect-ratio:16/7;
@@ -353,24 +346,98 @@ body::before {
 }
 .btn:hover { border-color:var(--accent); color:var(--accent); transform:translateY(-2px); }
 
+.section-divider {
+  width:100%; height:1px; margin:48px 0 44px;
+  background:linear-gradient(to right,transparent,var(--divider) 20%,var(--divider) 80%,transparent);
+}
+
+.fl-banner {
+  position:relative; width:100%;
+  aspect-ratio:21/7; border-radius:14px; overflow:hidden;
+  background:var(--img-bg); border:1px solid var(--border);
+  margin-bottom:28px;
+}
+.fl-banner img {
+  width:100%; height:100%; object-fit:cover; object-position:center top;
+  display:block; opacity:0; transition:opacity .5s ease;
+}
+.fl-banner img.loaded { opacity:1; }
+@media (prefers-reduced-motion:reduce) {
+  .fl-banner img { opacity:1; transition:none; }
+}
+.fl-banner-overlay {
+  position:absolute; inset:0;
+  background:linear-gradient(to right, rgba(9,13,22,.62) 0%, rgba(9,13,22,.28) 60%, rgba(9,13,22,.12) 100%);
+  display:flex; flex-direction:column; justify-content:flex-end;
+  padding:28px 32px;
+}
+[data-theme="dark"] .fl-banner-overlay {
+  background:linear-gradient(to right, rgba(2,6,23,.72) 0%, rgba(2,6,23,.32) 60%, rgba(2,6,23,.1) 100%);
+}
+.fl-banner-label {
+  font-size:10px; font-weight:600;
+  letter-spacing:1.8px; text-transform:uppercase;
+  color:rgba(255,255,255,.55); margin-bottom:6px;
+}
+.fl-banner-title {
+  font-family:'Poppins',sans-serif;
+  font-size:clamp(18px,2.2vw,24px);
+  font-weight:700; color:#fff;
+  letter-spacing:-.3px; line-height:1.15;
+}
+.fl-banner-sub {
+  margin-top:6px;
+  font-size:12.5px; color:rgba(255,255,255,.6); line-height:1.5;
+}
+
+.fl-grid {
+  display:grid; grid-template-columns:repeat(5,1fr); gap:10px;
+  margin-bottom:20px;
+}
+.fl-slot {
+  position:relative; border-radius:10px; overflow:hidden;
+  background:var(--img-bg); border:1px solid var(--border);
+  aspect-ratio:1/1;
+  transition:border-color .3s ease, transform .35s var(--ease);
+}
+.fl-slot:hover { border-color:var(--accent); transform:translateY(-2px); }
+.fl-slot img {
+  width:100%; height:100%; object-fit:cover; object-position:center;
+  display:block; opacity:0; transition:opacity .5s ease, transform .5s var(--ease);
+}
+.fl-slot img.loaded { opacity:1; }
+@media (prefers-reduced-motion:reduce) {
+  .fl-slot img { opacity:1; transition:none; }
+}
+.fl-slot:hover img { transform:scale(1.04); }
+.fl-note {
+  font-size:11.5px; color:var(--text-main); opacity:.5;
+  line-height:1.6; margin-top:4px;
+}
+
 @media (max-width:960px) {
   body  { padding:30px 14px 60px; }
   .card { padding:50px 28px; border-radius:20px; }
-  .ctx-strip    { grid-template-columns:1fr; }
+
   .handled-grid { grid-template-columns:1fr; }
 }
 @media (max-width:768px) {
   .img-grid    { grid-template-columns:repeat(2,1fr); }
+  .fl-grid     { grid-template-columns:repeat(3,1fr); }
   .work-footer { flex-direction:column; align-items:flex-start; }
   .pipe-arr    { display:none; }
+  .fl-banner   { aspect-ratio:16/7; }
 }
 @media (max-width:480px) {
   .card       { padding:36px 18px; }
   .img-grid   { grid-template-columns:repeat(2,1fr); gap:8px; }
+  .fl-grid    { grid-template-columns:repeat(2,1fr); gap:8px; }
   .img-slot   { aspect-ratio:3/2; }
   .hero       { aspect-ratio:4/3; }
+  .fl-banner  { aspect-ratio:4/3; }
   .intro h1   { font-size:24px; }
   .proj-title { font-size:18px; }
+  .fl-banner-overlay { padding:20px 18px; }
 }
 @media (max-width:360px) {
   .card     { padding:28px 14px; }
@@ -439,20 +506,7 @@ body::before {
     </div>
     <div class="proj-title" id="cs-title">Nationwide Dealership Branding Implementation</div>
 
-    <div class="ctx-strip" role="list" aria-label="Project context">
-      <div class="ctx-cell" role="listitem">
-        <div class="ctx-l">Organisation</div>
-        <div class="ctx-v">Saksham Signs Pvt. Ltd.</div>
-      </div>
-      <div class="ctx-cell" role="listitem">
-        <div class="ctx-l">Scale</div>
-        <div class="ctx-v">500+ dealership sites</div>
-      </div>
-      <div class="ctx-cell" role="listitem">
-        <div class="ctx-l">My Role</div>
-        <div class="ctx-v">Project & Design Executive</div>
-      </div>
-    </div>
+    <p class="proj-summary">A pan-India fascia branding rollout — translating Swaraj's brand standards into production-ready signage across 500+ dealership sites, coordinated end-to-end from a central project desk at Saksham Signs Pvt. Ltd.</p>
 
     <div class="hero">
       <img
@@ -631,6 +685,75 @@ body::before {
 
   </section>
 
+  <div class="section-divider" aria-hidden="true"></div>
+
+  <section aria-labelledby="fl-title">
+    <span class="s-label">Freelance Work</span>
+
+    <div class="proj-tags">
+      <span class="tag">Digital Illustration</span>
+      <span class="tag">Visual Artwork</span>
+      <span class="tag">Adobe Illustrator · Photoshop</span>
+      <span class="tag">Pre-Saksham · 2025</span>
+    </div>
+
+    <div class="fl-banner">
+      <img
+        src="assets/freelance/hero-illus.webp"
+        alt="Ink landscape illustration — tea hills with trees and figure, created for a premium tea brand"
+        width="1400" height="467"
+        loading="lazy" decoding="async"
+      >
+      <div class="fl-banner-overlay">
+        <div class="fl-banner-label">Freelance · Digital Illustration</div>
+        <div class="fl-banner-title" id="fl-title">Brand Illustration — Premium Tea Export</div>
+        <div class="fl-banner-sub">Regional scenes, tea-picking, and botanical artwork for a premium Indian tea brand.</div>
+      </div>
+    </div>
+
+    <div class="role-block" style="margin-bottom:28px;">
+      <div class="role-l">Context</div>
+      <p>Commissioned to create a series of digital illustrations for a premium tea export brand — Assam landscapes, tea-picking scenes, botanical subjects, and regional visual references. Work was produced using Adobe Illustrator and Photoshop, delivered as production-ready files across multiple outputs and revision cycles.</p>
+    </div>
+
+    <span class="s-label" style="font-size:12px;">Selected pieces</span>
+    <div class="fl-grid" role="list" aria-label="Selected freelance illustrations">
+
+      <div class="fl-slot" role="listitem">
+        <img src="assets/freelance/illus-1.webp"
+             alt="Hands releasing tea leaves — digital illustration"
+             width="600" height="600" loading="lazy" decoding="async">
+      </div>
+
+      <div class="fl-slot" role="listitem">
+        <img src="assets/freelance/illus-2.webp"
+             alt="Tea picker seated with sack — digital illustration"
+             width="600" height="600" loading="lazy" decoding="async">
+      </div>
+
+      <div class="fl-slot" role="listitem">
+        <img src="assets/freelance/illus-3.webp"
+             alt="Woman carrying fresh tea leaves — digital illustration"
+             width="600" height="600" loading="lazy" decoding="async">
+      </div>
+
+      <div class="fl-slot" role="listitem">
+        <img src="assets/freelance/illus-4.webp"
+             alt="Cinnamon and botanical leaves — digital illustration"
+             width="600" height="600" loading="lazy" decoding="async">
+      </div>
+
+      <div class="fl-slot" role="listitem">
+        <img src="assets/freelance/illus-5.webp"
+             alt="Hummingbird with leaf — digital illustration"
+             width="600" height="600" loading="lazy" decoding="async">
+      </div>
+
+    </div>
+    <p class="fl-note">Personal client work prior to joining Saksham Signs Pvt. Ltd. Artwork created using Adobe Illustrator and Photoshop.</p>
+
+  </section>
+
   <footer class="work-footer">
     <p class="foot-note">Professional work executed during association with Saksham Signs Pvt. Ltd. Client assets remain the property of their respective owners.</p>
     <a href="index.html" class="btn">← Back to CV</a>
@@ -676,14 +799,15 @@ if (!reduced && 'IntersectionObserver' in window) {
     });
   }, { rootMargin: '0px 0px -40px 0px', threshold: 0.1 });
 
-  document.querySelectorAll('.img-slot img').forEach(function(img) {
+  document.querySelectorAll('.img-slot img, .fl-slot img, .fl-banner img').forEach(function(img) {
     observer.observe(img);
   });
 } else {
-  document.querySelectorAll('.img-slot img').forEach(function(img) {
+  document.querySelectorAll('.img-slot img, .fl-slot img, .fl-banner img').forEach(function(img) {
     img.classList.add('loaded');
   });
 }
 </script>
 </body>
 </html>
+
