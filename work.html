@@ -3,34 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="light dark">
 <meta name="description" content="Selected work — Paritosh Sharma. Nationwide dealership branding implementation: Swaraj brand rollout across 500+ sites pan-India.">
 <title>Selected Work | Paritosh Sharma</title>
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="canonical" href="https://s-paritosh.github.io/work.html">
-<meta name="theme-color" media="(prefers-color-scheme: light)" content="#EBF1F6">
-<meta name="theme-color" media="(prefers-color-scheme: dark)"  content="#0F172A">
-<meta property="og:type"        content="website">
-<meta property="og:url"         content="https://s-paritosh.github.io/work.html">
-<meta property="og:title"       content="Selected Work | Paritosh Sharma">
+<meta name="theme-color" content="#EBF1F6">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://s-paritosh.github.io/work.html">
+<meta property="og:title" content="Selected Work | Paritosh Sharma">
 <meta property="og:description" content="Nationwide dealership branding implementation — Swaraj brand rollout, 500+ sites pan-India.">
-<meta property="og:image"       content="https://s-paritosh.github.io/og-image.png">
-<meta name="twitter:card"        content="summary_large_image">
-<meta name="twitter:title"       content="Selected Work | Paritosh Sharma">
+<meta property="og:image" content="https://s-paritosh.github.io/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Selected Work | Paritosh Sharma">
 <meta name="twitter:description" content="Nationwide dealership branding implementation — Swaraj brand rollout, 500+ sites pan-India.">
-<meta name="twitter:image"       content="https://s-paritosh.github.io/og-image.png">
+<meta name="twitter:image" content="https://s-paritosh.github.io/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-/* ─────────────────────────────────────────────────────────────
-   TOKENS — mirrors CV exactly
-   Priority: localStorage "theme" → prefers-color-scheme
-   Applied via [data-theme="dark"] on <html>, matching CV
-───────────────────────────────────────────────────────────── */
 :root {
-  color-scheme: light dark;
   --bg-body:   #EBF1F6;
   --bg-card:   rgba(255,255,255,0.88);
   --bg-cell:   rgba(255,255,255,0.88);
@@ -49,7 +41,6 @@
   --grad4: rgba(238,243,248,1);
   --ease: cubic-bezier(0.16,1,0.3,1);
 }
-/* Dark via JS-applied attribute — same as CV */
 [data-theme="dark"] {
   --bg-body:   #0F172A;
   --bg-card:   rgba(30,41,59,0.85);
@@ -68,7 +59,6 @@
   --grad3: rgba(15,23,42,1);
   --grad4: rgba(2,6,23,1);
 }
-/* Fallback for users with no saved preference — honour OS */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg-body:   #0F172A;
@@ -90,7 +80,6 @@
   }
 }
 
-/* ─── RESET ─────────────────────────────────────────────── */
 *,*::before,*::after {
   margin:0; padding:0; box-sizing:border-box;
   -webkit-font-smoothing:antialiased;
@@ -98,7 +87,6 @@
 }
 html { scroll-behavior:smooth; }
 
-/* ─── BODY ──────────────────────────────────────────────── */
 body {
   font-family:'Inter',sans-serif;
   color:var(--text-main);
@@ -112,7 +100,6 @@ body {
   padding:60px 24px 80px;
   display:flex; flex-direction:column; align-items:center;
   overflow-x:hidden;
-  transition:background .5s ease;
 }
 body::before {
   content:''; position:fixed; inset:0;
@@ -120,7 +107,6 @@ body::before {
   pointer-events:none; z-index:0;
 }
 
-/* ─── TOP BLUR ──────────────────────────────────────────── */
 .top-blur {
   position:fixed; top:0; left:0; width:100%; height:100px;
   pointer-events:none; z-index:999;
@@ -130,7 +116,6 @@ body::before {
   mask-image:linear-gradient(to bottom,rgba(0,0,0,1) 0%,rgba(0,0,0,.85) 35%,rgba(0,0,0,0) 100%);
 }
 
-/* ─── CARD ──────────────────────────────────────────────── */
 .card {
   position:relative; z-index:1;
   width:100%; max-width:1000px;
@@ -141,21 +126,18 @@ body::before {
   border-radius:24px;
   padding:64px 72px;
   box-shadow:0 20px 50px rgba(0,0,0,.05),0 8px 20px rgba(0,0,0,.03);
-  transition:background .5s ease, border-color .5s ease;
 }
 
-/* ─── ENTRANCE ANIMATION (once per session, matches CV) ─── */
 .first-visit .card {
   animation:cardReveal 1.3s cubic-bezier(.16,1,.3,1) both;
 }
 @keyframes cardReveal {
   from { opacity:0; filter:blur(8px); }
-  to   { opacity:1; filter:blur(0);   }
+  to   { opacity:1; filter:blur(0); }
 }
 
-/* ─── NAV ───────────────────────────────────────────────── */
 .page-nav {
-  display:flex; align-items:center; justify-content:space-between;
+  display:flex; align-items:center;
   margin-bottom:48px; margin-top:10px;
 }
 .back-link {
@@ -167,33 +149,24 @@ body::before {
 .back-link svg { transition:transform .35s var(--ease); }
 .back-link:hover { opacity:.75; }
 .back-link:hover svg { transform:translateX(-3px); }
-.nav-label {
-  font-size:11.5px; font-weight:600;
-  letter-spacing:2px; text-transform:uppercase;
-  color:var(--text-main); opacity:.5;
-}
 
-/* ─── PAGE INTRO ────────────────────────────────────────── */
 .intro { margin-bottom:40px; }
 .intro h1 {
   font-family:'Poppins',sans-serif;
   font-size:clamp(26px,3.5vw,40px);
   font-weight:700; letter-spacing:-.8px; line-height:1.1;
   color:var(--text-head); margin-bottom:10px;
-  transition:color .5s ease;
 }
 .intro p {
   font-size:14px; line-height:1.8;
   color:var(--text-body); max-width:58ch;
 }
 
-/* ─── DIVIDER ───────────────────────────────────────────── */
 .divider {
   width:100%; height:1px; margin-bottom:40px;
   background:linear-gradient(to right,transparent,var(--divider) 20%,var(--divider) 80%,transparent);
 }
 
-/* ─── SECTION LABEL ─────────────────────────────────────── */
 .s-label {
   position:relative;
   font-family:'Poppins',sans-serif;
@@ -206,7 +179,6 @@ body::before {
   width:28px; height:1.5px; background:var(--accent);
 }
 
-/* ─── PROJECT HEADER ────────────────────────────────────── */
 .proj-tags { display:flex; flex-wrap:wrap; gap:7px; margin-bottom:14px; }
 .tag {
   padding:4px 11px; border:1px solid var(--border); border-radius:20px;
@@ -217,25 +189,22 @@ body::before {
   font-size:clamp(19px,2.4vw,26px);
   font-weight:700; color:var(--text-head);
   letter-spacing:-.4px; line-height:1.15; margin-bottom:24px;
-  transition:color .5s ease;
 }
 
-/* ─── CONTEXT STRIP ─────────────────────────────────────── */
 .ctx-strip {
   display:grid; grid-template-columns:repeat(3,1fr);
   gap:1px; background:var(--strip-gap);
   border:1px solid var(--border); border-radius:12px;
   overflow:hidden; margin-bottom:32px;
 }
-.ctx-cell { background:var(--bg-cell); padding:16px 18px; transition:background .5s ease; }
+.ctx-cell { background:var(--bg-cell); padding:16px 18px; }
 .ctx-l {
   font-size:10px; font-weight:600;
   letter-spacing:1.4px; text-transform:uppercase;
   color:var(--text-main); opacity:.55; margin-bottom:5px;
 }
-.ctx-v { font-size:13.5px; font-weight:600; color:var(--text-head); line-height:1.35; transition:color .5s ease; }
+.ctx-v { font-size:13.5px; font-weight:600; color:var(--text-head); line-height:1.35; }
 
-/* ─── HERO IMAGE ────────────────────────────────────────── */
 .hero {
   width:100%; aspect-ratio:16/7;
   border-radius:14px; overflow:hidden;
@@ -244,15 +213,12 @@ body::before {
 }
 .hero img {
   width:100%; height:100%;
-  object-fit:cover; object-position:center;
-  display:block;
+  object-fit:cover; object-position:center; display:block;
 }
 
-/* ─── ROLE BLOCK ────────────────────────────────────────── */
 .role-block {
   padding:20px 22px; border:1px solid var(--border);
   border-radius:12px; margin-bottom:32px;
-  transition:border-color .5s ease;
 }
 .role-l {
   font-size:10px; font-weight:600;
@@ -264,7 +230,6 @@ body::before {
   color:var(--text-body); max-width:64ch;
 }
 
-/* ─── PIPELINE — lighter weight, summary only ───────────── */
 .pipeline { margin-bottom:32px; }
 .pipe-l {
   font-size:10px; font-weight:600;
@@ -281,11 +246,8 @@ body::before {
 }
 .pipe-arr { font-size:10px; color:var(--text-main); opacity:.25; flex-shrink:0; }
 
-/* ─── WORKFLOW CHART ────────────────────────────────────── */
 .workflow { margin-bottom:36px; }
-.wf-steps {
-  position:relative; display:flex; flex-direction:column;
-}
+.wf-steps { position:relative; display:flex; flex-direction:column; }
 .wf-steps::before {
   content:''; position:absolute;
   left:14px; top:10px; bottom:10px;
@@ -310,10 +272,9 @@ body::before {
 .wf-step:hover .wf-dot { background:var(--accent); border-color:var(--accent); }
 .wf-step:hover .wf-dot svg { stroke:var(--bg-body); }
 .wf-body { padding-top:3px; }
-.wf-name { font-size:13px; font-weight:600; color:var(--text-head); margin-bottom:2px; transition:color .5s ease; }
+.wf-name { font-size:13px; font-weight:600; color:var(--text-head); margin-bottom:2px; }
 .wf-desc { font-size:12px; line-height:1.6; color:var(--text-main); }
 
-/* ─── SITE PHOTOGRAPHS ──────────────────────────────────── */
 .photos-section { margin-bottom:40px; }
 .photos-intro {
   font-size:13.5px; line-height:1.75;
@@ -334,7 +295,6 @@ body::before {
   transition:transform .5s var(--ease);
 }
 .img-slot:hover img { transform:scale(1.03); }
-/* Caption — visible on hover desktop, always visible on touch */
 .img-cap {
   position:absolute; bottom:0; left:0; right:0;
   padding:28px 12px 10px;
@@ -344,7 +304,6 @@ body::before {
 }
 .img-slot:hover .img-cap { opacity:1; }
 
-/* ─── WHAT I HANDLED ────────────────────────────────────── */
 .handled-grid {
   display:grid; grid-template-columns:1fr 1fr;
   gap:8px; margin-top:18px;
@@ -361,7 +320,6 @@ body::before {
 }
 .h-text { font-size:12.5px; line-height:1.6; color:var(--text-body); font-weight:500; }
 
-/* ─── FOOTER ────────────────────────────────────────────── */
 .work-footer {
   margin-top:44px; padding-top:22px;
   border-top:1px solid var(--border);
@@ -370,7 +328,6 @@ body::before {
 }
 .foot-note { font-size:11.5px; color:var(--text-main); line-height:1.6; max-width:52ch; }
 
-/* ─── BUTTON ────────────────────────────────────────────── */
 .btn {
   display:inline-flex; align-items:center; gap:6px;
   padding:9px 18px; border-radius:30px;
@@ -381,7 +338,6 @@ body::before {
 }
 .btn:hover { border-color:var(--accent); color:var(--accent); transform:translateY(-2px); }
 
-/* ─── RESPONSIVE ────────────────────────────────────────── */
 @media (max-width:960px) {
   body  { padding:30px 14px 60px; }
   .card { padding:50px 28px; border-radius:20px; }
@@ -389,15 +345,21 @@ body::before {
   .handled-grid { grid-template-columns:1fr; }
 }
 @media (max-width:768px) {
-  .img-grid   { grid-template-columns:repeat(2,1fr); }
+  .img-grid    { grid-template-columns:repeat(2,1fr); }
   .work-footer { flex-direction:column; align-items:flex-start; }
-  .pipe-arr   { display:none; }
+  .pipe-arr    { display:none; }
 }
 @media (max-width:480px) {
-  .img-grid   { grid-template-columns:1fr; }
+  .card       { padding:36px 18px; }
+  .img-grid   { grid-template-columns:repeat(2,1fr); gap:8px; }
+  .img-slot   { aspect-ratio:3/2; }
   .hero       { aspect-ratio:4/3; }
   .intro h1   { font-size:24px; }
   .proj-title { font-size:18px; }
+}
+@media (max-width:360px) {
+  .card     { padding:28px 14px; }
+  .img-grid { grid-template-columns:1fr; }
 }
 @media (hover:none) {
   .img-cap { opacity:1; }
@@ -418,17 +380,12 @@ body::before {
   .first-visit .card { animation:none!important; opacity:1!important; filter:none!important; }
 }
 </style>
-
-<!-- Theme init — runs before paint to avoid flash
-     Priority: localStorage "theme" key (set by CV page)
-               → prefers-color-scheme fallback            -->
 <script>
 (function(){
   try {
-    var saved = localStorage.getItem('theme');
-    if (saved === 'dark')  { document.documentElement.setAttribute('data-theme','dark'); }
-    else if (saved === 'light') { document.documentElement.setAttribute('data-theme','light'); }
-    // No saved value → CSS @media fallback handles it, no attribute needed
+    var t = localStorage.getItem('theme');
+    if (t === 'dark')  document.documentElement.setAttribute('data-theme','dark');
+    else if (t === 'light') document.documentElement.setAttribute('data-theme','light');
   } catch(e) {}
 })();
 </script>
@@ -438,7 +395,6 @@ body::before {
 <div class="top-blur"></div>
 <main class="card">
 
-  <!-- Nav -->
   <nav class="page-nav" aria-label="Page navigation">
     <a href="index.html" class="back-link">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
@@ -448,10 +404,8 @@ body::before {
       </svg>
       Back to CV
     </a>
-    
   </nav>
 
-  <!-- Intro -->
   <div class="intro">
     <h1>Selected Work</h1>
     <p>The work spans design, coordination, production, and execution — from initial site information through installation.</p>
@@ -459,7 +413,6 @@ body::before {
 
   <div class="divider"></div>
 
-  <!-- CASE STUDY -->
   <section aria-labelledby="cs-title">
     <span class="s-label">Case Study</span>
 
@@ -471,7 +424,6 @@ body::before {
     </div>
     <div class="proj-title" id="cs-title">Nationwide Dealership Branding Implementation</div>
 
-    <!-- Context strip -->
     <div class="ctx-strip" role="list" aria-label="Project context">
       <div class="ctx-cell" role="listitem">
         <div class="ctx-l">Organisation</div>
@@ -487,24 +439,21 @@ body::before {
       </div>
     </div>
 
-    <!-- Hero -->
     <div class="hero">
       <img
         src="assets/swaraj/hero.jpg"
-        alt="Completed Swaraj dealership revamp showing installed fascia branding"
+        alt="Completed Swaraj dealership site — pan-India branding revamp"
         width="1400" height="613"
         loading="eager"
         decoding="async"
       >
     </div>
 
-    <!-- Role -->
     <div class="role-block">
       <div class="role-l">My role</div>
       <p>Adapted standardised Swaraj brand assets to individual dealership conditions across India — coordinating dealer and regional confirmations, preparing production-ready artwork, managing approvals, and tracking dispatch through to installation closure.</p>
     </div>
 
-    <!-- Pipeline — lighter, summary only -->
     <div class="pipeline" aria-label="Project pipeline">
       <div class="pipe-l">Pipeline overview</div>
       <div class="pipe-track" role="list">
@@ -524,17 +473,13 @@ body::before {
       </div>
     </div>
 
-    <!-- Workflow -->
     <div class="workflow">
       <span class="s-label" style="font-size:12px;">How each site moves</span>
       <div class="wf-steps" role="list">
 
         <div class="wf-step" role="listitem">
           <div class="wf-dot" aria-hidden="true">
-            <svg viewBox="0 0 24 24">
-              <path d="M9 11l3 3L22 4"/>
-              <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
-            </svg>
+            <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
           </div>
           <div class="wf-body">
             <div class="wf-name">Site intake</div>
@@ -544,10 +489,7 @@ body::before {
 
         <div class="wf-step" role="listitem">
           <div class="wf-dot" aria-hidden="true">
-            <svg viewBox="0 0 24 24">
-              <rect x="3" y="3" width="18" height="18" rx="2"/>
-              <path d="M3 9h18M9 21V9"/>
-            </svg>
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
           </div>
           <div class="wf-body">
             <div class="wf-name">Artwork & fascia mockup</div>
@@ -557,25 +499,17 @@ body::before {
 
         <div class="wf-step" role="listitem">
           <div class="wf-dot" aria-hidden="true">
-            <svg viewBox="0 0 24 24">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-              <circle cx="9" cy="7" r="4"/>
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-            </svg>
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
           </div>
           <div class="wf-body">
             <div class="wf-name">Dealer confirmation</div>
-            <div class="wf-desc">Artwork is circulated to the dealership and territory team for review. Feedback is incorporated and layouts revised where site parameters or requirements have changed, ensuring sign-off before escalation.</div>
+            <div class="wf-desc">Artwork is circulated to the dealership and territory team for review. Feedback is incorporated and layouts revised where site parameters or requirements have changed, ensuring sign-off before proceeding.</div>
           </div>
         </div>
 
         <div class="wf-step" role="listitem">
           <div class="wf-dot" aria-hidden="true">
-            <svg viewBox="0 0 24 24">
-              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-              <polyline points="22 4 12 14.01 9 11.01"/>
-            </svg>
+            <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
           </div>
           <div class="wf-body">
             <div class="wf-name">Head Office approval</div>
@@ -585,10 +519,7 @@ body::before {
 
         <div class="wf-step" role="listitem">
           <div class="wf-dot" aria-hidden="true">
-            <svg viewBox="0 0 24 24">
-              <rect x="2" y="7" width="20" height="14" rx="2"/>
-              <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
-            </svg>
+            <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
           </div>
           <div class="wf-body">
             <div class="wf-name">Production & dispatch</div>
@@ -598,10 +529,7 @@ body::before {
 
         <div class="wf-step" role="listitem">
           <div class="wf-dot" aria-hidden="true">
-            <svg viewBox="0 0 24 24">
-              <circle cx="12" cy="12" r="10"/>
-              <polyline points="12 6 12 12 16 14"/>
-            </svg>
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           </div>
           <div class="wf-body">
             <div class="wf-name">Installation & closure</div>
@@ -612,7 +540,6 @@ body::before {
       </div>
     </div>
 
-    <!-- Site photographs -->
     <div class="photos-section">
       <span class="s-label" style="font-size:12px;">Completed sites</span>
       <p class="photos-intro">Selected completed installations from the ongoing rollout, showing variations in site conditions and branding requirements.</p>
@@ -621,43 +548,42 @@ body::before {
 
         <div class="img-slot" role="listitem">
           <img src="assets/swaraj/site-01.jpg"
-               alt="Completed dealership revamp — installed Swaraj fascia branding"
+               alt="Dealer site revamp — pan-India branding rollout"
                width="900" height="675" loading="lazy" decoding="async">
-          <div class="img-cap">Completed dealership revamp</div>
+          <div class="img-cap">Completed dealer site revamp</div>
         </div>
 
         <div class="img-slot" role="listitem">
           <img src="assets/swaraj/site-02.jpg"
-               alt="Installed backlit Swaraj fascia — night photograph"
+               alt="Dealer site revamp — pan-India branding rollout"
                width="900" height="675" loading="lazy" decoding="async">
-          <div class="img-cap">Installed fascia · backlit</div>
+          <div class="img-cap">Completed dealer site revamp</div>
         </div>
 
         <div class="img-slot" role="listitem">
           <img src="assets/swaraj/site-03.jpg"
-               alt="Completed dealership — fascia and shutter branding"
+               alt="Dealer site revamp — pan-India branding rollout"
                width="900" height="675" loading="lazy" decoding="async">
-          <div class="img-cap">Fascia & shutter branding</div>
+          <div class="img-cap">Completed dealer site revamp</div>
         </div>
 
         <div class="img-slot" role="listitem">
           <img src="assets/swaraj/site-04.jpg"
-               alt="Completed Swaraj dealership revamp — wide forecourt site"
+               alt="Dealer site revamp — pan-India branding rollout"
                width="900" height="675" loading="lazy" decoding="async">
-          <div class="img-cap">Completed dealership revamp</div>
+          <div class="img-cap">Completed dealer site revamp</div>
         </div>
 
         <div class="img-slot" role="listitem">
           <img src="assets/swaraj/site-05.jpg"
-               alt="Final site implementation — two-storey dealership branding"
+               alt="Dealer site revamp — pan-India branding rollout"
                width="900" height="675" loading="lazy" decoding="async">
-          <div class="img-cap">Final site implementation</div>
+          <div class="img-cap">Completed dealer site revamp</div>
         </div>
 
       </div>
     </div>
 
-    <!-- What I handled -->
     <div>
       <span class="s-label" style="font-size:12px;">What I handled</span>
       <div class="handled-grid">
@@ -690,7 +616,6 @@ body::before {
 
   </section>
 
-  <!-- Footer -->
   <footer class="work-footer">
     <p class="foot-note">Professional work executed during association with Saksham Signs Pvt. Ltd. Client assets remain the property of their respective owners.</p>
     <a href="index.html" class="btn">← Back to CV</a>
@@ -699,7 +624,6 @@ body::before {
 </main>
 
 <script>
-// Session-gated entrance animation — same gate as CV
 if (!sessionStorage.getItem('work-visited')) {
   document.documentElement.classList.add('first-visit');
   sessionStorage.setItem('work-visited', '1');
