@@ -509,9 +509,12 @@ li:hover::before {
         border-radius: 0;
         box-shadow: none !important;
         background: #FFFFFF !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
         padding: 0 !important;
         transform: none !important;
     }
+    .section-title::after { width: 32px !important; }
     .two-column { gap: 26pt !important; }
     h1, .job-title, .edu-title { color: #000000 !important; }
     .role, .company, .section-title { color: #1A3E68 !important; }
