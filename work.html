@@ -207,7 +207,11 @@ body::before {
 }
 .role-block p {
   font-size:13.5px; line-height:1.75;
-  color:var(--text-body); max-width:64ch;
+  color:var(--text-body);
+}
+.fl-about {
+  font-size:13.5px; line-height:1.75;
+  color:var(--text-body);
 }
 
 .workflow { margin-bottom:36px; }
@@ -306,7 +310,7 @@ body::before {
 
 .fl-section { margin-bottom:8px; }
 .fl-hero {
-  width:100%; aspect-ratio:4/3;
+  width:100%; aspect-ratio:16/7;
   border-radius:14px; overflow:hidden;
   background:var(--img-bg); border:1px solid var(--border);
   margin-bottom:24px; position:relative;
@@ -314,7 +318,7 @@ body::before {
 }
 .fl-hero img {
   width:100%; height:100%;
-  object-fit:cover; object-position:center center;
+  object-fit:cover; object-position:center 20%;
   display:block; opacity:0; transition:opacity .5s ease;
   filter:grayscale(10%) contrast(1.02);
 }
@@ -643,7 +647,8 @@ body::before {
 
     <div class="role-block" style="margin-bottom:16px;">
       <div class="role-l">About this work</div>
-      <p>Digital illustrations and visual artwork created for a premium Indian tea export brand — regional scenes, tea-picking imagery, and botanical subjects. Commissioned work; artwork rights are retained by respective clients.</p>
+      <p class="fl-about">Digital illustrations and visual artwork created for a premium Indian tea export brand — regional scenes, tea-picking imagery, and botanical subjects.</p>
+      <p class="fl-about" style="margin-top:6px;">Commissioned work; artwork rights are retained by respective clients.</p>
     </div>
 
     <p class="fl-note">Selected reference pieces shown below. Commissioned artwork rights are held by respective clients; images are shared for portfolio reference only.</p>
