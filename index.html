@@ -45,7 +45,7 @@
     --fade-fast: 0.3s ease;
     --fade-base: 0.5s ease;
 }
-/* Theme */
+
 [data-theme="dark"] {
     --bg-body: #0F172A;
     --bg-cv: rgba(30, 41, 59, 0.85);
@@ -413,7 +413,7 @@ li:hover::before {
     color: var(--text-li);
 }
 
-/* Animations */
+
 .first-visit .cv {
     animation: cvReveal 1.4s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
@@ -428,7 +428,7 @@ li:hover::before {
     }
 }
 
-/* Responsive */
+
 @media screen and (max-width: 960px) {
     body { padding: 30px 14px; }
     .cv { padding: 54px 28px; border-radius: 20px; }
@@ -481,7 +481,7 @@ li:hover::before {
         animation-iteration-count: 1 !important;
     }
 }
-/* Print */
+
 @page {
     size: A4;
     margin: 10mm 14mm;
@@ -514,40 +514,40 @@ li:hover::before {
         transform: none !important;
     }
     .section-title::after { width: 28px !important; }
-    /* Header */
+
     header { margin-bottom: 10pt !important; margin-top: 0 !important; gap: 12pt !important; }
     h1 { font-size: 24pt !important; margin-bottom: 4px !important; letter-spacing: -0.5px !important; }
     .role { font-size: 10.5pt !important; }
     .contact-item { font-size: 9pt !important; line-height: 1.5 !important; }
-    /* Divider */
+
     .divider { margin-bottom: 9pt !important; background: rgba(0,0,0,0.18) !important; }
-    /* Section titles */
+
     .section-title { font-size: 9pt !important; letter-spacing: 1.6px !important; margin-bottom: 8pt !important; }
-    /* Profile */
+
     .profile { font-size: 9.5pt !important; line-height: 1.45 !important; margin-bottom: 0 !important; }
-    /* Experience */
+
     .job-title { font-size: 10pt !important; }
     .company { font-size: 9pt !important; margin-bottom: 4pt !important; }
     .job-date { font-size: 8.5pt !important; }
-    /* Lists */
+
     li { font-size: 9pt !important; line-height: 1.4 !important; margin-bottom: 3pt !important; transform: none !important; }
     li::before { top: 0.48em; }
-    /* Sections & jobs */
+
     section { margin-bottom: 9pt !important; page-break-inside: avoid; break-inside: avoid; transform: none !important; }
     .job { margin-bottom: 8pt !important; page-break-inside: avoid; break-inside: avoid; }
-    /* Two column */
+
     .two-column { gap: 20pt !important; margin-top: 2pt !important; }
-    /* Education */
+
     .edu-title { font-size: 9pt !important; }
     .education { margin-bottom: 6pt !important; }
     .education p { font-size: 8.5pt !important; line-height: 1.4 !important; }
-    /* Interests */
+
     .interests { font-size: 9pt !important; line-height: 1.5 !important; }
-    /* Colour overrides */
+
     h1, .job-title, .edu-title { color: #000000 !important; }
     .role, .company, .section-title { color: #1A3E68 !important; }
     .profile, li, .interests, .education p, .contact-item { color: #2a2a2a !important; }
-    /* Suppress hover states */
+
     .cv:hover, li:hover { transform: none !important; }
     a { color: inherit !important; text-decoration: none !important; }
 }
