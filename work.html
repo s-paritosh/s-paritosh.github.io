@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Selected work — Paritosh Sharma. Nationwide dealership branding implementation: Swaraj brand rollout across 500+ sites pan-India.">
+<meta name="description" content="Selected work — Paritosh Sharma. Brand implementation, dealership branding rollouts, and freelance illustration work.">
 <title>Selected Work | Paritosh Sharma</title>
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="canonical" href="https://s-paritosh.github.io/work.html">
@@ -11,11 +11,11 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://s-paritosh.github.io/work.html">
 <meta property="og:title" content="Selected Work | Paritosh Sharma">
-<meta property="og:description" content="Nationwide dealership branding implementation — Swaraj brand rollout, 500+ sites pan-India.">
+<meta property="og:description" content="Nationwide dealership branding implementation and freelance illustration — Paritosh Sharma.">
 <meta property="og:image" content="https://s-paritosh.github.io/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Selected Work | Paritosh Sharma">
-<meta name="twitter:description" content="Nationwide dealership branding implementation — Swaraj brand rollout, 500+ sites pan-India.">
+<meta name="twitter:description" content="Nationwide dealership branding implementation and freelance illustration — Paritosh Sharma.">
 <meta name="twitter:image" content="https://s-paritosh.github.io/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -59,26 +59,6 @@
   --grad3: rgba(15,23,42,1);
   --grad4: rgba(2,6,23,1);
 }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg-body:   #0F172A;
-    --bg-card:   rgba(30,41,59,0.85);
-    --bg-cell:   rgba(30,41,59,0.85);
-    --text-main: #94A3B8;
-    --text-head: #F8FAFC;
-    --text-body: #E2E8F0;
-    --accent:    #38BDF8;
-    --border:    rgba(56,189,248,0.2);
-    --divider:   rgba(56,189,248,0.3);
-    --img-bg:    rgba(56,189,248,0.06);
-    --strip-gap: rgba(56,189,248,0.12);
-    --step-line: rgba(56,189,248,0.16);
-    --grad1: rgba(15,23,42,1);
-    --grad2: rgba(30,41,59,1);
-    --grad3: rgba(15,23,42,1);
-    --grad4: rgba(2,6,23,1);
-  }
-}
 
 *,*::before,*::after {
   margin:0; padding:0; box-sizing:border-box;
@@ -100,6 +80,7 @@ body {
   padding:60px 24px 80px;
   display:flex; flex-direction:column; align-items:center;
   overflow-x:hidden;
+  transition:background .5s ease;
 }
 body::before {
   content:''; position:fixed; inset:0;
@@ -126,6 +107,7 @@ body::before {
   border-radius:24px;
   padding:64px 72px;
   box-shadow:0 20px 50px rgba(0,0,0,.05),0 8px 20px rgba(0,0,0,.03);
+  transition:background .5s ease, border-color .5s ease;
 }
 
 .first-visit .card {
@@ -156,6 +138,7 @@ body::before {
   font-size:clamp(26px,3.5vw,40px);
   font-weight:700; letter-spacing:-.8px; line-height:1.1;
   color:var(--text-head); margin-bottom:10px;
+  transition:color .5s ease;
 }
 .intro p {
   font-size:14px; line-height:1.8;
@@ -179,7 +162,7 @@ body::before {
   width:28px; height:1.5px; background:var(--accent);
 }
 
-.proj-tags { display:flex; flex-wrap:wrap; gap:7px; margin-bottom:14px; }
+.proj-tags { display:flex; flex-wrap:wrap; gap:7px; margin-bottom:10px; }
 .tag {
   padding:4px 11px; border:1px solid var(--border); border-radius:20px;
   font-size:11px; font-weight:600; color:var(--accent); letter-spacing:.3px;
@@ -188,30 +171,34 @@ body::before {
   font-family:'Poppins',sans-serif;
   font-size:clamp(19px,2.4vw,26px);
   font-weight:700; color:var(--text-head);
-  letter-spacing:-.4px; line-height:1.15; margin-bottom:24px;
+  letter-spacing:-.4px; line-height:1.15; margin-bottom:8px;
+  transition:color .5s ease;
 }
-
-.proj-summary {
-  font-size:13px; line-height:1.75;
-  color:var(--text-main); opacity:.7;
-  margin-bottom:28px; max-width:62ch;
-  letter-spacing:.1px;
+.proj-meta-line {
+  font-size:10.5px; font-weight:600;
+  letter-spacing:1.4px; text-transform:uppercase;
+  color:var(--text-main); opacity:.45;
+  margin-bottom:24px;
 }
 
 .hero {
   width:100%; aspect-ratio:16/7;
   border-radius:14px; overflow:hidden;
   background:var(--img-bg); border:1px solid var(--border);
-  margin-bottom:32px;
+  margin-bottom:28px;
 }
 .hero img {
   width:100%; height:100%;
   object-fit:cover; object-position:center; display:block;
+  opacity:0; transition:opacity .5s ease, transform .5s var(--ease);
 }
+.hero img.loaded { opacity:1; }
+.hero:hover img { transform:none; }
 
 .role-block {
   padding:20px 22px; border:1px solid var(--border);
-  border-radius:12px; margin-bottom:32px;
+  border-radius:12px; margin-bottom:28px;
+  transition:border-color .5s ease;
 }
 .role-l {
   font-size:10px; font-weight:600;
@@ -223,23 +210,19 @@ body::before {
   color:var(--text-body); max-width:64ch;
 }
 
-.pipeline { margin-bottom:32px; }
-.pipe-l {
-  font-size:10px; font-weight:600;
-  letter-spacing:1.4px; text-transform:uppercase;
-  color:var(--text-main); opacity:.4; margin-bottom:11px;
-}
-.pipe-track {
-  display:flex; flex-wrap:wrap; align-items:center; gap:5px;
-}
-.pipe-step {
-  padding:5px 12px; border:1px solid var(--border); border-radius:20px;
-  font-size:11.5px; font-weight:500; color:var(--text-main);
-  white-space:nowrap; opacity:.8;
-}
-.pipe-arr { font-size:10px; color:var(--text-main); opacity:.25; flex-shrink:0; }
-
 .workflow { margin-bottom:36px; }
+.pipe-summary {
+  display:flex; flex-wrap:wrap; align-items:center; gap:4px;
+  margin-bottom:20px; padding-bottom:16px;
+  border-bottom:1px solid var(--border);
+}
+.pipe-pill {
+  padding:3px 10px; border:1px solid var(--border); border-radius:20px;
+  font-size:11px; font-weight:500; color:var(--text-main);
+  white-space:nowrap; opacity:.7;
+}
+.pipe-arrow { font-size:9px; color:var(--text-main); opacity:.2; flex-shrink:0; }
+
 .wf-steps { position:relative; display:flex; flex-direction:column; }
 .wf-steps::before {
   content:''; position:absolute;
@@ -265,7 +248,7 @@ body::before {
 .wf-step:hover .wf-dot { background:var(--accent); border-color:var(--accent); }
 .wf-step:hover .wf-dot svg { stroke:var(--bg-body); }
 .wf-body { padding-top:3px; }
-.wf-name { font-size:13px; font-weight:600; color:var(--text-head); margin-bottom:2px; }
+.wf-name { font-size:13px; font-weight:600; color:var(--text-head); margin-bottom:2px; transition:color .5s ease; }
 .wf-desc { font-size:12px; line-height:1.6; color:var(--text-main); }
 
 .photos-section { margin-bottom:40px; }
@@ -283,25 +266,13 @@ body::before {
   transition:border-color .3s ease, transform .35s var(--ease);
 }
 .img-slot:hover { border-color:var(--accent); transform:translateY(-2px); }
-.hero img {
-  width:100%; height:100%;
-  object-fit:cover; object-position:center; display:block;
-  opacity:0; transition:opacity .5s ease;
-}
-.hero img.loaded { opacity:1; }
-.img-slot img, .hero img {
-  opacity: 0;
-  transition: opacity .5s ease, transform .5s var(--ease);
-}
-.img-slot img {
+.img-slot img,
+.fl-slot img {
   width:100%; height:100%; object-fit:cover; display:block;
+  opacity:0; transition:opacity .5s ease, transform .5s var(--ease);
 }
-.img-slot img.loaded, .hero img.loaded {
-  opacity: 1;
-}
-@media (prefers-reduced-motion: reduce) {
-  .img-slot img, .hero img { opacity: 1; transition: none; }
-}
+.img-slot img.loaded,
+.fl-slot img.loaded { opacity:1; }
 .img-slot:hover img { transform:scale(1.03); }
 .img-cap {
   position:absolute; bottom:0; left:0; right:0;
@@ -328,13 +299,67 @@ body::before {
 }
 .h-text { font-size:12.5px; line-height:1.6; color:var(--text-body); font-weight:500; }
 
+.section-divider {
+  width:100%; height:1px; margin:44px 0;
+  background:linear-gradient(to right,transparent,var(--divider) 20%,var(--divider) 80%,transparent);
+}
+
+.fl-section { margin-bottom:8px; }
+.fl-hero {
+  width:100%; aspect-ratio:16/7;
+  border-radius:14px; overflow:hidden;
+  background:var(--img-bg); border:1px solid var(--border);
+  margin-bottom:24px; position:relative;
+  display:flex; align-items:center; justify-content:center;
+}
+.fl-hero img {
+  width:100%; height:100%;
+  object-fit:cover; object-position:center top;
+  display:block; opacity:0; transition:opacity .5s ease;
+  filter:grayscale(10%) contrast(1.02);
+}
+.fl-hero img.loaded { opacity:1; }
+.fl-hero-overlay {
+  position:absolute; inset:0;
+  background:linear-gradient(to bottom, rgba(235,241,246,0) 40%, rgba(235,241,246,0.55) 100%);
+  pointer-events:none;
+}
+[data-theme="dark"] .fl-hero-overlay {
+  background:linear-gradient(to bottom, rgba(15,23,42,0) 40%, rgba(15,23,42,0.55) 100%);
+}
+.fl-note {
+  font-size:11px; line-height:1.65;
+  color:var(--text-main); opacity:.55;
+  margin-bottom:20px; max-width:56ch;
+  font-style:italic;
+}
+.fl-grid {
+  display:grid; grid-template-columns:repeat(5,1fr); gap:10px;
+}
+.fl-slot {
+  position:relative; border-radius:10px; overflow:hidden;
+  background:var(--img-bg); border:1px solid var(--border);
+  aspect-ratio:1/1;
+  transition:border-color .3s ease, transform .35s var(--ease);
+}
+.fl-slot:hover { border-color:var(--accent); transform:translateY(-2px); }
+.fl-slot:hover img { transform:scale(1.03); }
+.fl-cap {
+  position:absolute; bottom:0; left:0; right:0;
+  padding:24px 12px 10px;
+  background:linear-gradient(to top,rgba(9,13,22,.55) 0%,transparent 100%);
+  color:#fff; font-size:11px; font-weight:500; letter-spacing:.3px;
+  opacity:0; transition:opacity .25s ease;
+}
+.fl-slot:hover .fl-cap { opacity:1; }
+
 .work-footer {
   margin-top:44px; padding-top:22px;
   border-top:1px solid var(--border);
   display:flex; align-items:center; justify-content:space-between;
   flex-wrap:wrap; gap:14px;
 }
-.foot-note { font-size:11.5px; color:var(--text-main); line-height:1.6; max-width:52ch; }
+.foot-note { font-size:11.5px; color:var(--text-main); line-height:1.6; max-width:56ch; }
 
 .btn {
   display:inline-flex; align-items:center; gap:6px;
@@ -346,107 +371,39 @@ body::before {
 }
 .btn:hover { border-color:var(--accent); color:var(--accent); transform:translateY(-2px); }
 
-.section-divider {
-  width:100%; height:1px; margin:48px 0 44px;
-  background:linear-gradient(to right,transparent,var(--divider) 20%,var(--divider) 80%,transparent);
-}
-
-.fl-banner {
-  position:relative; width:100%;
-  aspect-ratio:21/7; border-radius:14px; overflow:hidden;
-  background:var(--img-bg); border:1px solid var(--border);
-  margin-bottom:28px;
-}
-.fl-banner img {
-  width:100%; height:100%; object-fit:cover; object-position:center top;
-  display:block; opacity:0; transition:opacity .5s ease;
-}
-.fl-banner img.loaded { opacity:1; }
-@media (prefers-reduced-motion:reduce) {
-  .fl-banner img { opacity:1; transition:none; }
-}
-.fl-banner-overlay {
-  position:absolute; inset:0;
-  background:linear-gradient(to right, rgba(9,13,22,.62) 0%, rgba(9,13,22,.28) 60%, rgba(9,13,22,.12) 100%);
-  display:flex; flex-direction:column; justify-content:flex-end;
-  padding:28px 32px;
-}
-[data-theme="dark"] .fl-banner-overlay {
-  background:linear-gradient(to right, rgba(2,6,23,.72) 0%, rgba(2,6,23,.32) 60%, rgba(2,6,23,.1) 100%);
-}
-.fl-banner-label {
-  font-size:10px; font-weight:600;
-  letter-spacing:1.8px; text-transform:uppercase;
-  color:rgba(255,255,255,.55); margin-bottom:6px;
-}
-.fl-banner-title {
-  font-family:'Poppins',sans-serif;
-  font-size:clamp(18px,2.2vw,24px);
-  font-weight:700; color:#fff;
-  letter-spacing:-.3px; line-height:1.15;
-}
-.fl-banner-sub {
-  margin-top:6px;
-  font-size:12.5px; color:rgba(255,255,255,.6); line-height:1.5;
-}
-
-.fl-grid {
-  display:grid; grid-template-columns:repeat(5,1fr); gap:10px;
-  margin-bottom:20px;
-}
-.fl-slot {
-  position:relative; border-radius:10px; overflow:hidden;
-  background:var(--img-bg); border:1px solid var(--border);
-  aspect-ratio:1/1;
-  transition:border-color .3s ease, transform .35s var(--ease);
-}
-.fl-slot:hover { border-color:var(--accent); transform:translateY(-2px); }
-.fl-slot img {
-  width:100%; height:100%; object-fit:cover; object-position:center;
-  display:block; opacity:0; transition:opacity .5s ease, transform .5s var(--ease);
-}
-.fl-slot img.loaded { opacity:1; }
-@media (prefers-reduced-motion:reduce) {
-  .fl-slot img { opacity:1; transition:none; }
-}
-.fl-slot:hover img { transform:scale(1.04); }
-.fl-note {
-  font-size:11.5px; color:var(--text-main); opacity:.5;
-  line-height:1.6; margin-top:4px;
-}
-
 @media (max-width:960px) {
   body  { padding:30px 14px 60px; }
   .card { padding:50px 28px; border-radius:20px; }
-
   .handled-grid { grid-template-columns:1fr; }
 }
 @media (max-width:768px) {
-  .img-grid    { grid-template-columns:repeat(2,1fr); }
-  .fl-grid     { grid-template-columns:repeat(3,1fr); }
+  .img-grid  { grid-template-columns:repeat(2,1fr); }
+  .fl-grid   { grid-template-columns:repeat(3,1fr); }
   .work-footer { flex-direction:column; align-items:flex-start; }
-  .pipe-arr    { display:none; }
-  .fl-banner   { aspect-ratio:16/7; }
+  .pipe-arrow  { display:none; }
 }
 @media (max-width:480px) {
-  .card       { padding:36px 18px; }
-  .img-grid   { grid-template-columns:repeat(2,1fr); gap:8px; }
-  .fl-grid    { grid-template-columns:repeat(2,1fr); gap:8px; }
-  .img-slot   { aspect-ratio:3/2; }
-  .hero       { aspect-ratio:4/3; }
-  .fl-banner  { aspect-ratio:4/3; }
-  .intro h1   { font-size:24px; }
+  .card      { padding:36px 18px; }
+  .img-grid  { grid-template-columns:repeat(2,1fr); gap:8px; }
+  .fl-grid   { grid-template-columns:repeat(2,1fr); gap:8px; }
+  .img-slot  { aspect-ratio:3/2; }
+  .hero      { aspect-ratio:4/3; }
+  .fl-hero   { aspect-ratio:4/3; }
+  .intro h1  { font-size:24px; }
   .proj-title { font-size:18px; }
-  .fl-banner-overlay { padding:20px 18px; }
 }
 @media (max-width:360px) {
   .card     { padding:28px 14px; }
   .img-grid { grid-template-columns:1fr; }
+  .fl-grid  { grid-template-columns:1fr; }
 }
 @media (hover:none) {
   .img-cap { opacity:1; }
+  .fl-cap  { opacity:1; }
   .img-slot:hover         { transform:none; }
   .img-slot:hover img     { transform:none; }
+  .fl-slot:hover          { transform:none; }
+  .fl-slot:hover img      { transform:none; }
   .h-item:hover           { border-color:var(--border); }
   .wf-step:hover .wf-dot  { background:var(--bg-card); border-color:var(--border); }
   .wf-step:hover .wf-dot svg { stroke:var(--accent); }
@@ -454,20 +411,32 @@ body::before {
 @media (prefers-reduced-motion:reduce) {
   html { scroll-behavior:auto; }
   .first-visit .card { animation:none!important; opacity:1!important; filter:none!important; }
+  .hero img, .img-slot img, .fl-slot img, .fl-hero img {
+    opacity:1!important; transition:none!important; filter:none!important;
+  }
   *,*::before,*::after { transition-duration:.01ms!important; animation-duration:.01ms!important; }
 }
 @media print {
-  .card { box-shadow:none; border:none; }
-  .top-blur { display:none; }
+  body { background:#ffffff!important; padding:0!important; }
+  body::before, .top-blur { display:none!important; }
+  .card {
+    box-shadow:none!important; border:none!important; border-radius:0!important;
+    background:#ffffff!important; padding:0!important;
+    max-width:100%!important; backdrop-filter:none!important;
+  }
   .first-visit .card { animation:none!important; opacity:1!important; filter:none!important; }
+  .page-nav, .work-footer .btn { display:none!important; }
+  .hero img, .img-slot img, .fl-slot img, .fl-hero img { opacity:1!important; }
+  .img-slot:hover, .fl-slot:hover { transform:none!important; }
 }
 </style>
+
 <script>
 (function(){
   try {
     var t = localStorage.getItem('theme');
     if (t === 'dark')  document.documentElement.setAttribute('data-theme','dark');
-    else if (t === 'light') document.documentElement.setAttribute('data-theme','light');
+    else document.documentElement.removeAttribute('data-theme');
   } catch(e) {}
 })();
 </script>
@@ -495,6 +464,7 @@ body::before {
 
   <div class="divider"></div>
 
+  <!-- CASE STUDY — SWARAJ -->
   <section aria-labelledby="cs-title">
     <span class="s-label">Case Study</span>
 
@@ -505,8 +475,7 @@ body::before {
       <span class="tag">Pan-India · Ongoing</span>
     </div>
     <div class="proj-title" id="cs-title">Nationwide Dealership Branding Implementation</div>
-
-    <p class="proj-summary">A pan-India fascia branding rollout — translating Swaraj's brand standards into production-ready signage across 500+ dealership sites, coordinated end-to-end from a central project desk at Saksham Signs Pvt. Ltd.</p>
+    <div class="proj-meta-line">Saksham Signs Pvt. Ltd. &nbsp;·&nbsp; 500+ dealership sites &nbsp;·&nbsp; Project & Design Executive</div>
 
     <div class="hero">
       <img
@@ -523,27 +492,24 @@ body::before {
       <p>Adapted standardised Swaraj brand assets to individual dealership conditions across India — coordinating dealer and regional confirmations, preparing production-ready artwork, managing approvals, and tracking dispatch through to installation closure.</p>
     </div>
 
-    <div class="pipeline" aria-label="Project pipeline">
-      <div class="pipe-l">Pipeline overview</div>
-      <div class="pipe-track" role="list">
-        <span class="pipe-step" role="listitem">Site intake</span>
-        <span class="pipe-arr" aria-hidden="true">→</span>
-        <span class="pipe-step" role="listitem">Artwork & mockup</span>
-        <span class="pipe-arr" aria-hidden="true">→</span>
-        <span class="pipe-step" role="listitem">Dealer confirmation</span>
-        <span class="pipe-arr" aria-hidden="true">→</span>
-        <span class="pipe-step" role="listitem">HO approval</span>
-        <span class="pipe-arr" aria-hidden="true">→</span>
-        <span class="pipe-step" role="listitem">Production</span>
-        <span class="pipe-arr" aria-hidden="true">→</span>
-        <span class="pipe-step" role="listitem">Dispatch</span>
-        <span class="pipe-arr" aria-hidden="true">→</span>
-        <span class="pipe-step" role="listitem">Installation & closure</span>
-      </div>
-    </div>
-
     <div class="workflow">
       <span class="s-label" style="font-size:12px;">How each site moves</span>
+      <div class="pipe-summary" role="list" aria-label="Pipeline overview">
+        <span class="pipe-pill" role="listitem">Site intake</span>
+        <span class="pipe-arrow" aria-hidden="true">→</span>
+        <span class="pipe-pill" role="listitem">Artwork & mockup</span>
+        <span class="pipe-arrow" aria-hidden="true">→</span>
+        <span class="pipe-pill" role="listitem">Dealer confirmation</span>
+        <span class="pipe-arrow" aria-hidden="true">→</span>
+        <span class="pipe-pill" role="listitem">HO approval</span>
+        <span class="pipe-arrow" aria-hidden="true">→</span>
+        <span class="pipe-pill" role="listitem">Production</span>
+        <span class="pipe-arrow" aria-hidden="true">→</span>
+        <span class="pipe-pill" role="listitem">Dispatch</span>
+        <span class="pipe-arrow" aria-hidden="true">→</span>
+        <span class="pipe-pill" role="listitem">Installation & closure</span>
+      </div>
+
       <div class="wf-steps" role="list">
 
         <div class="wf-step" role="listitem">
@@ -614,153 +580,111 @@ body::before {
       <p class="photos-intro">Selected completed installations from the ongoing rollout, showing variations in site conditions and branding requirements.</p>
 
       <div class="img-grid" role="list" aria-label="Completed site photographs">
-
         <div class="img-slot" role="listitem">
-          <img src="assets/swaraj/site-01.webp"
-               alt="Dealer site revamp — pan-India branding rollout"
-               width="900" height="675" loading="lazy" decoding="async">
+          <img src="assets/swaraj/site-01.webp" alt="Dealer site revamp — pan-India branding rollout" width="900" height="675" loading="lazy" decoding="async">
           <div class="img-cap">Completed dealer site revamp</div>
         </div>
-
         <div class="img-slot" role="listitem">
-          <img src="assets/swaraj/site-02.webp"
-               alt="Dealer site revamp — pan-India branding rollout"
-               width="900" height="675" loading="lazy" decoding="async">
+          <img src="assets/swaraj/site-02.webp" alt="Dealer site revamp — pan-India branding rollout" width="900" height="675" loading="lazy" decoding="async">
           <div class="img-cap">Completed dealer site revamp</div>
         </div>
-
         <div class="img-slot" role="listitem">
-          <img src="assets/swaraj/site-03.webp"
-               alt="Dealer site revamp — pan-India branding rollout"
-               width="900" height="675" loading="lazy" decoding="async">
+          <img src="assets/swaraj/site-03.webp" alt="Dealer site revamp — pan-India branding rollout" width="900" height="675" loading="lazy" decoding="async">
           <div class="img-cap">Completed dealer site revamp</div>
         </div>
-
         <div class="img-slot" role="listitem">
-          <img src="assets/swaraj/site-04.webp"
-               alt="Dealer site revamp — pan-India branding rollout"
-               width="900" height="675" loading="lazy" decoding="async">
+          <img src="assets/swaraj/site-04.webp" alt="Dealer site revamp — pan-India branding rollout" width="900" height="675" loading="lazy" decoding="async">
           <div class="img-cap">Completed dealer site revamp</div>
         </div>
-
         <div class="img-slot" role="listitem">
-          <img src="assets/swaraj/site-05.webp"
-               alt="Dealer site revamp — pan-India branding rollout"
-               width="900" height="675" loading="lazy" decoding="async">
+          <img src="assets/swaraj/site-05.webp" alt="Dealer site revamp — pan-India branding rollout" width="900" height="675" loading="lazy" decoding="async">
           <div class="img-cap">Completed dealer site revamp</div>
         </div>
-
       </div>
     </div>
 
     <div>
       <span class="s-label" style="font-size:12px;">What I handled</span>
       <div class="handled-grid">
-        <div class="h-item">
-          <div class="h-dot" aria-hidden="true"></div>
-          <div class="h-text">Site information review and stakeholder coordination</div>
-        </div>
-        <div class="h-item">
-          <div class="h-dot" aria-hidden="true"></div>
-          <div class="h-text">Fascia artwork adaptation to individual site conditions</div>
-        </div>
-        <div class="h-item">
-          <div class="h-dot" aria-hidden="true"></div>
-          <div class="h-text">Artwork adaptation aligned with brand guidelines</div>
-        </div>
-        <div class="h-item">
-          <div class="h-dot" aria-hidden="true"></div>
-          <div class="h-text">Approval management — dealer and Head Office</div>
-        </div>
-        <div class="h-item">
-          <div class="h-dot" aria-hidden="true"></div>
-          <div class="h-text">Production file preparation and pre-press check</div>
-        </div>
-        <div class="h-item">
-          <div class="h-dot" aria-hidden="true"></div>
-          <div class="h-text">Production status, dispatch, and installation follow-up</div>
-        </div>
+        <div class="h-item"><div class="h-dot" aria-hidden="true"></div><div class="h-text">Site information review and stakeholder coordination</div></div>
+        <div class="h-item"><div class="h-dot" aria-hidden="true"></div><div class="h-text">Fascia artwork adaptation to individual site conditions</div></div>
+        <div class="h-item"><div class="h-dot" aria-hidden="true"></div><div class="h-text">Artwork adaptation aligned with brand guidelines</div></div>
+        <div class="h-item"><div class="h-dot" aria-hidden="true"></div><div class="h-text">Approval management — dealer and Head Office</div></div>
+        <div class="h-item"><div class="h-dot" aria-hidden="true"></div><div class="h-text">Production file preparation and pre-press check</div></div>
+        <div class="h-item"><div class="h-dot" aria-hidden="true"></div><div class="h-text">Production status, dispatch, and installation follow-up</div></div>
       </div>
     </div>
 
   </section>
 
-  <div class="section-divider" aria-hidden="true"></div>
+  <div class="section-divider"></div>
 
-  <section aria-labelledby="fl-title">
+  <!-- FREELANCE — ILLUSTRATION & BRAND IDENTITY -->
+  <section class="fl-section" aria-labelledby="fl-title">
     <span class="s-label">Freelance Work</span>
 
-    <div class="proj-tags">
+    <div class="proj-tags" style="margin-bottom:10px;">
       <span class="tag">Digital Illustration</span>
       <span class="tag">Visual Artwork</span>
       <span class="tag">Adobe Illustrator · Photoshop</span>
-      <span class="tag">Pre-Saksham · 2025</span>
     </div>
+    <div class="proj-title" id="fl-title">Digital Illustration — Premium Tea Export</div>
+    <div class="proj-meta-line">Freelance &nbsp;·&nbsp; Jul – Aug 2025 &nbsp;·&nbsp; Commissioned work</div>
 
-    <div class="fl-banner">
+    <div class="fl-hero">
       <img
         src="assets/freelance/hero-illus.webp"
-        alt="Ink landscape illustration — tea hills with trees and figure, created for a premium tea brand"
-        width="1400" height="467"
-        loading="lazy" decoding="async"
+        alt="Ink landscape illustration — tea hills with scattered trees and a solitary figure, created for a premium Indian tea export brand"
+        width="1400" height="613"
+        loading="eager"
+        decoding="async"
       >
-      <div class="fl-banner-overlay">
-        <div class="fl-banner-label">Freelance · Digital Illustration</div>
-        <div class="fl-banner-title" id="fl-title">Brand Illustration — Premium Tea Export</div>
-        <div class="fl-banner-sub">Regional scenes, tea-picking, and botanical artwork for a premium Indian tea brand.</div>
-      </div>
+      <div class="fl-hero-overlay"></div>
     </div>
 
-    <div class="role-block" style="margin-bottom:28px;">
-      <div class="role-l">Context</div>
-      <p>Commissioned to create a series of digital illustrations for a premium tea export brand — Assam landscapes, tea-picking scenes, botanical subjects, and regional visual references. Work was produced using Adobe Illustrator and Photoshop, delivered as production-ready files across multiple outputs and revision cycles.</p>
+    <div class="role-block" style="margin-bottom:16px;">
+      <div class="role-l">About this work</div>
+      <p>Digital illustrations and visual artwork created for a premium Indian tea export brand — regional scenes, tea-picking imagery, and botanical subjects. Work delivered across 30+ creative outputs; commissioned artwork rights are retained by respective clients.</p>
     </div>
 
-    <span class="s-label" style="font-size:12px;">Selected pieces</span>
-    <div class="fl-grid" role="list" aria-label="Selected freelance illustrations">
+    <p class="fl-note">Selected reference pieces shown below. Commissioned artwork rights are held by respective clients; images are shared for portfolio reference only.</p>
 
+
+    <div class="fl-grid" role="list" aria-label="Freelance illustration work">
       <div class="fl-slot" role="listitem">
-        <img src="assets/freelance/illus-1.webp"
-             alt="Hands releasing tea leaves — digital illustration"
-             width="600" height="600" loading="lazy" decoding="async">
+        <img src="assets/freelance/illus-1.webp" alt="Hands releasing fresh tea leaves — digital illustration" width="900" height="900" loading="lazy" decoding="async">
+        <div class="fl-cap">Tea harvest · Digital illustration</div>
       </div>
-
       <div class="fl-slot" role="listitem">
-        <img src="assets/freelance/illus-2.webp"
-             alt="Tea picker seated with sack — digital illustration"
-             width="600" height="600" loading="lazy" decoding="async">
+        <img src="assets/freelance/illus-2.webp" alt="Tea picker seated with harvest sack — digital illustration" width="900" height="900" loading="lazy" decoding="async">
+        <div class="fl-cap">Tea picker · Digital illustration</div>
       </div>
-
       <div class="fl-slot" role="listitem">
-        <img src="assets/freelance/illus-3.webp"
-             alt="Woman carrying fresh tea leaves — digital illustration"
-             width="600" height="600" loading="lazy" decoding="async">
+        <img src="assets/freelance/illus-3.webp" alt="Woman carrying fresh tea leaves — digital illustration" width="900" height="900" loading="lazy" decoding="async">
+        <div class="fl-cap">Tea harvest · Digital illustration</div>
       </div>
-
       <div class="fl-slot" role="listitem">
-        <img src="assets/freelance/illus-4.webp"
-             alt="Cinnamon and botanical leaves — digital illustration"
-             width="600" height="600" loading="lazy" decoding="async">
+        <img src="assets/freelance/illus-4.webp" alt="Cinnamon and botanical tea leaves — digital illustration" width="900" height="900" loading="lazy" decoding="async">
+        <div class="fl-cap">Botanical · Digital illustration</div>
       </div>
-
       <div class="fl-slot" role="listitem">
-        <img src="assets/freelance/illus-5.webp"
-             alt="Hummingbird with leaf — digital illustration"
-             width="600" height="600" loading="lazy" decoding="async">
+        <img src="assets/freelance/illus-5.webp" alt="Hummingbird with leaf — digital illustration" width="900" height="900" loading="lazy" decoding="async">
+        <div class="fl-cap">Hummingbird · Digital illustration</div>
       </div>
-
     </div>
-    <p class="fl-note">Personal client work prior to joining Saksham Signs Pvt. Ltd. Artwork created using Adobe Illustrator and Photoshop.</p>
 
   </section>
 
   <footer class="work-footer">
-    <p class="foot-note">Professional work executed during association with Saksham Signs Pvt. Ltd. Client assets remain the property of their respective owners.</p>
+    <p class="foot-note">Professional work executed during association with Saksham Signs Pvt. Ltd. and as freelance commissions. Client assets remain the property of their respective owners.</p>
     <a href="index.html" class="btn">← Back to CV</a>
   </footer>
 
 </main>
 
+<noscript><style>
+  .hero img, .img-slot img, .fl-slot img, .fl-hero img { opacity:1 !important; }
+</style></noscript>
 <script>
 if (!sessionStorage.getItem('work-visited')) {
   document.documentElement.classList.add('first-visit');
@@ -769,45 +693,36 @@ if (!sessionStorage.getItem('work-visited')) {
 
 var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-var heroImg = document.querySelector('.hero img');
-if (heroImg) {
-  if (reduced) {
-    heroImg.classList.add('loaded');
-  } else if (heroImg.complete) {
-    heroImg.classList.add('loaded');
-  } else {
-    heroImg.addEventListener('load', function() {
-      heroImg.classList.add('loaded');
-    }, { once: true });
-  }
+function revealOnLoad(img) {
+  if (reduced) { img.classList.add('loaded'); return; }
+  if (img.complete) { img.classList.add('loaded'); }
+  else { img.addEventListener('load', function(){ img.classList.add('loaded'); }, { once:true }); }
 }
+
+var heroImg = document.querySelector('.hero img');
+if (heroImg) revealOnLoad(heroImg);
+
+var flHeroImg = document.querySelector('.fl-hero img');
+if (flHeroImg) revealOnLoad(flHeroImg);
 
 if (!reduced && 'IntersectionObserver' in window) {
   var observer = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
       if (entry.isIntersecting) {
-        var img = entry.target;
-        if (img.complete) {
-          img.classList.add('loaded');
-        } else {
-          img.addEventListener('load', function() {
-            img.classList.add('loaded');
-          }, { once: true });
-        }
-        observer.unobserve(img);
+        revealOnLoad(entry.target);
+        observer.unobserve(entry.target);
       }
     });
-  }, { rootMargin: '0px 0px -40px 0px', threshold: 0.1 });
+  }, { rootMargin:'0px 0px -40px 0px', threshold:0.1 });
 
-  document.querySelectorAll('.img-slot img, .fl-slot img, .fl-banner img').forEach(function(img) {
+  document.querySelectorAll('.img-slot img, .fl-slot img').forEach(function(img) {
     observer.observe(img);
   });
 } else {
-  document.querySelectorAll('.img-slot img, .fl-slot img, .fl-banner img').forEach(function(img) {
+  document.querySelectorAll('.img-slot img, .fl-slot img').forEach(function(img) {
     img.classList.add('loaded');
   });
 }
 </script>
 </body>
 </html>
-
