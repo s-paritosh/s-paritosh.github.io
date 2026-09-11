@@ -422,6 +422,46 @@ body::before {
   }
   *,*::before,*::after { transition-duration:.01ms!important; animation-duration:.01ms!important; }
 }
+/* --- Press-and-hold preview (fl-slot, touch only) --- */
+.fl-slot {
+  -webkit-touch-callout: none;
+  user-select: none;
+}
+.fl-preview-backdrop {
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(9,13,22,.86);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  opacity: 0; pointer-events: none;
+  transition: opacity .28s ease;
+}
+.fl-preview-backdrop.fl-active {
+  opacity: 1; pointer-events: auto;
+}
+.fl-preview-img {
+  position: fixed; z-index: 1001;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%) scale(.88);
+  max-width: 62vw; max-height: 70vh;
+  width: auto; height: auto;
+  border-radius: 10px;
+  box-shadow: 0 24px 70px rgba(0,0,0,.5);
+  object-fit: contain;
+  opacity: 0; pointer-events: none;
+  transition: opacity .28s ease, transform .36s cubic-bezier(.16,1,.3,1);
+}
+.fl-preview-img.fl-active {
+  opacity: 1;
+  transform: translate(-50%,-50%) scale(1);
+}
+@media (max-width: 600px) {
+  .fl-preview-img { max-width: 86vw; max-height: 78vh; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fl-preview-backdrop { transition: none !important; }
+  .fl-preview-img      { transition: none !important; }
+}
+
 @media print {
   body { background:#ffffff!important; padding:0!important; }
   body::before, .top-blur { display:none!important; }
@@ -725,6 +765,73 @@ if (!reduced && 'IntersectionObserver' in window) {
     img.classList.add('loaded');
   });
 }
+
+// Press-and-hold preview — fl-slot touch only
+(function(){
+  var slots = document.querySelectorAll('.fl-slot');
+  if (!slots.length) return;
+
+  var backdrop = document.createElement('div');
+  backdrop.className = 'fl-preview-backdrop';
+  var preview = document.createElement('img');
+  preview.className = 'fl-preview-img';
+  preview.alt = ''; preview.setAttribute('aria-hidden','true');
+  document.body.appendChild(backdrop);
+  document.body.appendChild(preview);
+
+  var timer = null, sx = 0, sy = 0, open = false;
+  var HOLD = 400, DRIFT = 10;
+
+  function show(src) {
+    preview.src = src;
+    backdrop.classList.add('fl-active');
+    preview.classList.add('fl-active');
+    document.body.style.overflow = 'hidden';
+    open = true;
+  }
+  function hide() {
+    if (!open) return;
+    backdrop.classList.remove('fl-active');
+    preview.classList.remove('fl-active');
+    document.body.style.overflow = '';
+    open = false;
+    setTimeout(function(){ if (!open) preview.src = ''; }, 400);
+  }
+  function cancel() {
+    if (timer) { clearTimeout(timer); timer = null; }
+  }
+
+  backdrop.addEventListener('pointerup', hide);
+
+  slots.forEach(function(slot) {
+    var img = slot.querySelector('img');
+    if (!img) return;
+
+    slot.addEventListener('pointerdown', function(e) {
+      if (e.pointerType === 'mouse') return;
+      cancel();
+      sx = e.clientX; sy = e.clientY;
+      timer = setTimeout(function(){
+        timer = null;
+        show(img.currentSrc || img.src);
+      }, HOLD);
+    });
+
+    slot.addEventListener('pointermove', function(e) {
+      if (!timer) return;
+      var dx = e.clientX - sx, dy = e.clientY - sy;
+      if (dx*dx + dy*dy > DRIFT*DRIFT) cancel();
+    });
+
+    slot.addEventListener('pointerup',     function(){ cancel(); if (open) hide(); });
+    slot.addEventListener('pointercancel', function(){ cancel(); if (open) hide(); });
+    slot.addEventListener('contextmenu',   function(e){ e.preventDefault(); });
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && open) hide();
+  });
+})();
 </script>
 </body>
 </html>
