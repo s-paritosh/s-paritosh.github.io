@@ -514,7 +514,14 @@ li:hover::before {
         padding: 0 !important;
         transform: none !important;
     }
-    .section-title::after { width: 28px !important; }
+    .section-title::after {
+        display: block !important;
+        width: 28px !important;
+        height: 1.5px !important;
+        background: #1A3E68 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
 
     header { margin-bottom: 10pt !important; margin-top: 0 !important; gap: 12pt !important; }
     h1 { font-size: 24pt !important; margin-bottom: 4px !important; letter-spacing: -0.5px !important; }
