@@ -364,6 +364,7 @@ body::before {
   display:flex; align-items:center; justify-content:space-between;
   flex-wrap:wrap; gap:14px;
 }
+.work-end { display: none; }
 .foot-note { font-size:11.5px; color:var(--text-main); line-height:1.6; max-width:56ch; }
 
 .btn {
@@ -462,17 +463,127 @@ body::before {
 }
 
 @media print {
-  body { background:#ffffff!important; padding:0!important; }
-  body::before, .top-blur { display:none!important; }
-  .card {
-    box-shadow:none!important; border:none!important; border-radius:0!important;
-    background:#ffffff!important; padding:0!important;
-    max-width:100%!important; backdrop-filter:none!important;
+  @page { size: A4; margin: 14mm 16mm; }
+
+  html, body {
+    background: #FFFFFF !important;
+    padding: 0 !important;
   }
-  .first-visit .card { animation:none!important; opacity:1!important; filter:none!important; }
-  .page-nav, .work-footer .btn { display:none!important; }
-  .hero img, .img-slot img, .fl-slot img, .fl-hero img { opacity:1!important; }
-  .img-slot:hover, .fl-slot:hover { transform:none!important; }
+  body::before, .top-blur { display:none !important; }
+
+  .card {
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background: #FFFFFF !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+  .first-visit .card { animation:none !important; opacity:1 !important; filter:none !important; }
+
+  .page-nav { display:none !important; }
+  .work-footer { display:none !important; }
+  .proj-tags { display:none !important; }
+  .hero { display:none !important; }
+  .photos-section { display:none !important; }
+  .fl-hero { display:none !important; }
+  .fl-grid { display:none !important; }
+  .fl-note { display:none !important; }
+  .fl-hero-overlay { display:none !important; }
+
+  .intro h1 { font-size:22pt !important; margin-bottom:8pt !important; }
+  .intro p  { font-size:10.5pt !important; line-height:1.6 !important; margin-bottom:4pt !important; }
+  .divider  { margin:10pt 0 14pt !important; background:rgba(0,0,0,0.15) !important; }
+
+  .s-label  {
+    font-size:9pt !important;
+    margin-bottom:8pt !important;
+    letter-spacing:1.8px !important;
+    color:#1A3E68 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .s-label::after { display:none !important; }
+
+  .proj-title   { font-size:15pt !important; margin-bottom:4pt !important; letter-spacing:-0.3px !important; }
+  .proj-meta-line { font-size:8.5pt !important; margin-bottom:12pt !important; opacity:.65 !important; }
+
+  .role-block {
+    padding:11pt 13pt !important;
+    margin-bottom:14pt !important;
+    border-radius:6px !important;
+    border:1px solid rgba(26,62,104,0.18) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .role-l   { font-size:7.5pt !important; color:#1A3E68 !important; margin-bottom:5pt !important; }
+  .role-block p { font-size:9.5pt !important; line-height:1.55 !important; }
+
+  .pipe-summary {
+    margin-bottom:10pt !important;
+    padding-bottom:8pt !important;
+    border-bottom:1px solid rgba(0,0,0,0.1) !important;
+  }
+  .pipe-pill  { font-size:8pt !important; padding:2px 8px !important; }
+  .pipe-arrow { font-size:9pt !important; opacity:.3 !important; }
+
+  .workflow { margin-bottom:10pt !important; }
+  .wf-steps::before { background:rgba(26,62,104,0.15) !important; -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; top:14px !important; bottom:14px !important; }
+  .wf-step  { padding:7pt 0 !important; }
+  .wf-dot   {
+    width:22px !important; height:22px !important;
+    background:#fff !important;
+    border:1.5px solid rgba(26,62,104,0.3) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .wf-dot svg { width:10px !important; height:10px !important; stroke:#1A3E68 !important; }
+  .wf-name  { font-size:9.5pt !important; color:#090D16 !important; margin-bottom:2pt !important; }
+  .wf-desc  { font-size:8.5pt !important; line-height:1.5 !important; color:#4A5568 !important; }
+
+  .handled-grid {
+    grid-template-columns:1fr 1fr !important;
+    gap:6pt !important;
+    margin-top:10pt !important;
+  }
+  .h-item {
+    padding:8pt 10pt !important;
+    border-radius:5px !important;
+    border:1px solid rgba(26,62,104,0.14) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .h-dot  { background:#1A3E68 !important; -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; }
+  .h-text { font-size:8.5pt !important; line-height:1.45 !important; color:#232E3C !important; }
+
+  .handled-section { page-break-before: always; break-before: always; padding-top:8pt !important; }
+  .section-divider { margin:14pt 0 !important; background:rgba(0,0,0,0.12) !important; }
+
+  .fl-section { page-break-before: avoid; break-before: avoid; }
+
+  .fl-about-block {
+    padding:11pt 13pt !important;
+    margin-bottom:10pt !important;
+    border-radius:6px !important;
+    border:1px solid rgba(26,62,104,0.14) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .fl-about { font-size:9.5pt !important; line-height:1.55 !important; color:#232E3C !important; }
+
+  .work-end {
+    display: block !important;
+    margin-top: 10pt;
+    text-align: center;
+    font-size: 8pt;
+    letter-spacing: 3px;
+    color: #AAAAAA;
+    page-break-before: avoid;
+    break-before: avoid;
+  }
+  a { color:inherit !important; text-decoration:none !important; }
 }
 </style>
 
@@ -646,7 +757,7 @@ body::before {
       </div>
     </div>
 
-    <div>
+    <div class="handled-section">
       <span class="s-label" style="font-size:12px;">What I handled</span>
       <div class="handled-grid">
         <div class="h-item"><div class="h-dot" aria-hidden="true"></div><div class="h-text">Site information review and stakeholder coordination</div></div>
@@ -721,6 +832,7 @@ body::before {
     <a href="index.html" class="btn">← Back to CV</a>
   </footer>
 
+  <div class="work-end">&mdash; &#10022; &mdash;</div>
 </main>
 
 <noscript><style>
