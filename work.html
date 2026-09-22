@@ -505,7 +505,14 @@ body::before {
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
   }
-  .s-label::after { display:none !important; }
+  .s-label::after {
+    display:block !important;
+    background:#1A3E68 !important;
+    width:28px !important;
+    height:1.5px !important;
+    -webkit-print-color-adjust:exact !important;
+    print-color-adjust:exact !important;
+  }
 
   .proj-title   { font-size:15pt !important; margin-bottom:4pt !important; letter-spacing:-0.3px !important; }
   .proj-meta-line { font-size:8.5pt !important; margin-bottom:12pt !important; opacity:.65 !important; }
