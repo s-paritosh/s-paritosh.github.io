@@ -747,6 +747,18 @@ if (!sessionStorage.getItem('visited')) {
     sessionStorage.setItem('visited', '1');
 }
 
+// Browsers suggest the <title> as the default filename when saving/printing to PDF.
+// Swap to a clean filename right before printing, then restore the normal tab title after.
+(function printFilename() {
+    var displayTitle = document.title;
+    window.addEventListener('beforeprint', function () {
+        document.title = 'paritosh_sharma_resume';
+    });
+    window.addEventListener('afterprint', function () {
+        document.title = displayTitle;
+    });
+})();
+
 (function buildEmail() {
     const u = 'jobs.paritosh';
     const d = 'gmail.com';
