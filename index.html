@@ -1684,6 +1684,46 @@ html[data-view-mode="designer"] #minimal-mode-view {
     scroll-margin-top: 84px;
 }
 
+.yy-connect-lead {
+    font-family: var(--font-serif);
+    font-size: clamp(20px, 2.4vw, 26px);
+    line-height: 1.3;
+    color: var(--text-heading);
+    max-width: 34ch;
+    margin-bottom: 18px;
+}
+
+.yy-email-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.yy-footer-note {
+    font-size: 12.5px;
+    line-height: 1.65;
+    color: var(--text-main);
+    margin-top: 14px;
+    max-width: 56ch;
+}
+
+.yy-footer-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+}
+
+.yy-connect-thanks {
+    margin-top: 20px;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--text-muted);
+}
+
 .yy-footer-grid {
     display: grid;
     grid-template-columns: 1.4fr 1fr;
@@ -1872,7 +1912,7 @@ html[data-view-mode="designer"] #minimal-mode-view {
         gap: 20px;
     }
     .yy-footer-actions {
-        align-items: flex-start !important;
+        align-items: flex-start;
     }
 }
 
@@ -2053,7 +2093,7 @@ html[data-view-mode="designer"] #minimal-mode-view {
 <div class="yinyee-loader" id="yinyee-loader" aria-hidden="true">
     <div class="loader-top-bar">
         <span id="loader-top-left">(00) PARITOSH SHARMA — OPENING PORTFOLIO</span>
-        <span id="loader-mode-destination">VIEW // 01–04 SELECTED WORK</span>
+        <span id="loader-mode-destination">VIEW // SELECTED WORK</span>
     </div>
 
     <div class="loader-center">
@@ -2066,7 +2106,7 @@ html[data-view-mode="designer"] #minimal-mode-view {
             <div class="loader-fill" id="loader-fill"></div>
         </div>
 
-        <div class="loader-target-label" id="loader-sub-status">INITIALIZING SECTIONS (01)–(04) · CASE STUDIES &amp; WORKFLOW</div>
+        <div class="loader-target-label" id="loader-sub-status">PREPARING CASE STUDIES &amp; PROJECT DETAILS</div>
     </div>
 
     <div class="loader-bottom-bar">
@@ -2232,7 +2272,7 @@ html[data-view-mode="designer"] #minimal-mode-view {
                 </div>
             </div>
 
-            <nav class="yy-mobile-drawer" id="yy-mobile-drawer" aria-label="Mobile portfolio sections">
+            <nav class="yy-mobile-drawer" id="yy-mobile-drawer" aria-label="Mobile portfolio sections" inert>
                 <div class="yy-mobile-nav-grid">
                     <a href="#about-sec" onclick="return scrollToDesignerSection('about-sec', event);"><span>01</span>ABOUT</a>
                     <a href="#case-study-sec" onclick="return scrollToDesignerSection('case-study-sec', event);"><span>02</span>CASE STUDY</a>
@@ -2260,7 +2300,7 @@ html[data-view-mode="designer"] #minimal-mode-view {
                 <div class="yy-hero-subgrid">
                     <div>
                         <p class="yy-hero-lead">
-                            Selected work spanning corporate identity implementation, production artwork and cross-functional project coordination — from adapting Swaraj's brand guidelines to the varied requirements of <strong>500+ dealership sites across India</strong> to developing commissioned digital illustrations.
+                            Selected work spanning corporate identity implementation, production artwork and project coordination. This includes adapting Swaraj’s brand guidelines to the varied requirements of <strong>500+ dealership sites across India</strong>, alongside commissioned digital illustration.
                         </p>
                         <div style="display:flex; flex-wrap:wrap; gap:10px;">
                             <a href="#case-study-sec" class="btn btn-primary" onclick="return scrollToDesignerSection('case-study-sec', event);">Explore Case Studies ↓</a>
@@ -2278,7 +2318,7 @@ html[data-view-mode="designer"] #minimal-mode-view {
                             <div class="yy-metric-label">Rollout Process<br>Site intake to installation close-out</div>
                         </div>
                         <div class="yy-metric-item">
-                            <div class="yy-metric-val">Cross&#8209;<wbr>functional</div>
+                            <div class="yy-metric-val">Cross&#8209;team</div>
                             <div class="yy-metric-label">Stakeholder Coordination<br>Dealer · Territory · Head Office · Production</div>
                         </div>
                     </div>
@@ -2308,7 +2348,7 @@ html[data-view-mode="designer"] #minimal-mode-view {
                             <div class="yy-role-box">
                                 <span class="yy-box-label">My Role</span>
                                 <p>
-                                    Translating established corporate identity guidelines into site-specific fascia and signage layouts, while coordinating stakeholder reviews, artwork approvals and production workflows. The role spans dealer and territory alignment, Head Office approvals, production coordination, dispatch tracking and installation close-out across 500+ dealership sites.
+                                    I adapt Swaraj’s corporate identity guidelines to individual dealership sites, developing fascia and signage layouts around local dimensions, structural conditions and regional script requirements. I also coordinate dealer and territory reviews, Head Office approvals, production hand-offs, dispatch tracking and installation close-out across a 500+ site rollout.
                                 </p>
                             </div>
 
@@ -2542,7 +2582,7 @@ html[data-view-mode="designer"] #minimal-mode-view {
                                 <div class="job-date">Sep 2025 – Present</div>
                             </div>
                             <div class="company">Saksham Signs Pvt. Ltd. &nbsp;·&nbsp; Delhi NCR, India</div>
-                            <p class="yy-exp-summary">At Saksham Signs, I coordinate Swaraj’s nationwide Corporate Identity rollout across 500+ dealership sites. My work includes adapting Head Office brand guidelines into production-ready fascia and signage layouts for site-specific dimensions and regional scripts, while aligning dealer and territory reviews, Head Office approvals, production, dispatch and installation follow-up.</p>
+                            <p class="yy-exp-summary">At Saksham Signs, I contribute to Swaraj’s nationwide Corporate Identity rollout across 500+ dealership sites. My work combines site-specific fascia and signage adaptation with coordination across dealers, territory teams, Head Office and production — from artwork reviews and approvals through dispatch and installation follow-up.</p>
                         </div>
 
                         <div class="yy-exp-row">
@@ -2551,7 +2591,7 @@ html[data-view-mode="designer"] #minimal-mode-view {
                                 <div class="job-date">Jul 2025 – Aug 2025</div>
                             </div>
                             <div class="company">Freelance</div>
-                            <p class="yy-exp-summary">Commissioned digital illustrations for a premium tea export brand, developed from the client’s brief and refined through feedback rounds. Each piece explored composition, subject treatment and visual consistency before final artwork delivery.</p>
+                            <p class="yy-exp-summary">Created commissioned digital illustrations for a premium tea export brand, developing compositions from client briefs and refining the artwork through feedback rounds before final delivery.</p>
                         </div>
                     </div>
 
@@ -2629,22 +2669,24 @@ html[data-view-mode="designer"] #minimal-mode-view {
             <footer class="yy-footer reveal-on-scroll" id="connect-sec">
                 <div class="yy-sec-bar">
                     <div class="yy-sec-bar-left">
-                        <h2 class="yy-sec-title">Let's Connect</h2>
+                        <h2 class="yy-sec-title">Connect</h2>
+                        <span class="yy-sec-num">(04)</span>
                     </div>
                 </div>
 
                 <div class="yy-footer-grid">
                     <div>
-                        <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap;">
+                        <p class="yy-connect-lead">Share your thoughts!</p>
+                        <div class="yy-email-row">
                             <a href="#contact" id="footer-email-link" data-email-trigger="1" class="yy-email-big" aria-label="Email Paritosh Sharma"></a>
                             <button type="button" onclick="copyEmailAddress(this)" class="btn-copy-pill">Copy</button>
                         </div>
-                        <p style="font-size:12.5px; line-height:1.65; color:var(--text-main); margin-top:14px; max-width:56ch;">
+                        <p class="yy-footer-note">
                             Professional work executed during association with Saksham Signs Pvt. Ltd. and as freelance commissions. Client assets remain the property of their respective owners.
                         </p>
                     </div>
 
-                    <div class="yy-footer-actions" style="display:flex; flex-direction:column; align-items:flex-end; gap:12px;">
+                    <div class="yy-footer-actions">
                         <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:center;">
                             <a href="https://www.linkedin.com/in/paritosh-sharma-96986b37a" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="padding:8px 16px; font-size:12.5px; background:rgba(255,255,255,0.7);">LinkedIn ↗</a>
                             <button type="button" onclick="triggerModeSwitch('minimal', 'top')" class="btn-glass-cv">
@@ -2760,6 +2802,8 @@ html[data-view-mode="designer"] #minimal-mode-view {
                             </g>
                         </svg>
                     </div>
+
+                    <p class="yy-connect-thanks">Thank you for taking the time to explore my work.</p>
 
                     <div class="yy-tree-coords">
                         <span>28.6139° N, 77.2090° E</span>
@@ -3068,6 +3112,20 @@ var stopPetals = function() {};
 var isTransitioning = false;
 var pendingMode = null;
 var DESIGNER_HASHES = ['#selected-work', '#about-sec', '#case-study-sec', '#career-sec', '#connect-sec'];
+var LOADER_COPY = {
+    designer: {
+        top: '(00) PARITOSH SHARMA — OPENING PORTFOLIO',
+        word: 'Loading',
+        dest: 'VIEW // SELECTED WORK',
+        sub: 'PREPARING CASE STUDIES & PROJECT DETAILS'
+    },
+    minimal: {
+        top: '(00) PARITOSH SHARMA — RETURNING TO CV',
+        word: 'Restoring',
+        dest: 'VIEW // MINIMAL CV',
+        sub: 'RESTORING EXECUTIVE RESUME VIEW'
+    }
+};
 
 function applyModeState(targetMode, targetAnchor) {
     var html = document.documentElement;
@@ -3109,8 +3167,6 @@ function triggerModeSwitch(targetMode, targetAnchor, skipHistory) {
         return;
     }
 
-    isTransitioning = true;
-
     var loader = document.getElementById('yinyee-loader');
     var topLeftEl = document.getElementById('loader-top-left');
     var wordEl = document.getElementById('loader-word');
@@ -3118,20 +3174,17 @@ function triggerModeSwitch(targetMode, targetAnchor, skipHistory) {
     var fillEl = document.getElementById('loader-fill');
     var destEl = document.getElementById('loader-mode-destination');
     var subEl = document.getElementById('loader-sub-status');
-
-    if (targetMode === 'designer') {
-        loader.classList.remove('glass-return');
-        if (topLeftEl) topLeftEl.textContent = '(00) PARITOSH SHARMA — OPENING PORTFOLIO';
-        wordEl.textContent = 'Loading';
-        destEl.textContent = 'VIEW // 01–04 SELECTED WORK';
-        subEl.textContent = 'INITIALIZING SECTIONS (01)–(04) · CASE STUDIES & WORKFLOW';
-    } else {
-        loader.classList.add('glass-return');
-        if (topLeftEl) topLeftEl.textContent = '(00) PARITOSH SHARMA — LOADING CV';
-        wordEl.textContent = 'Restoring';
-        destEl.textContent = 'VIEW // EXECUTIVE RESUME';
-        subEl.textContent = 'LOADING MINIMAL CV · EXECUTIVE RESUME VIEW';
+    if (!loader || !wordEl || !digitsEl || !fillEl) {
+        applyModeState(targetMode, targetAnchor);
+        return;
     }
+    isTransitioning = true;
+    var copy = LOADER_COPY[targetMode === 'designer' ? 'designer' : 'minimal'];
+    loader.classList.toggle('glass-return', targetMode !== 'designer');
+    if (topLeftEl) topLeftEl.textContent = copy.top;
+    wordEl.textContent = copy.word;
+    if (destEl) destEl.textContent = copy.dest;
+    if (subEl) subEl.textContent = copy.sub;
 
     digitsEl.textContent = '000';
     fillEl.style.width = '0%';
@@ -3153,7 +3206,11 @@ function triggerModeSwitch(targetMode, targetAnchor, skipHistory) {
         if (progress < 1) {
             requestAnimationFrame(step);
         } else {
-            applyModeState(targetMode, targetAnchor);
+            try {
+                applyModeState(targetMode, targetAnchor);
+            } catch (err) {
+                document.documentElement.setAttribute('data-view-mode', targetMode);
+            }
 
             setTimeout(function() {
                 loader.classList.add('is-exiting');
@@ -3213,29 +3270,25 @@ window.addEventListener('popstate', function(e) {
     }
 })();
 
+function setMobileNavOpen(open, returnFocus) {
+    var drawer = document.getElementById('yy-mobile-drawer');
+    var btn = document.getElementById('yy-mobile-btn');
+    var icon = document.getElementById('yy-mobile-icon');
+    if (!drawer || !btn) return;
+    drawer.classList.toggle('is-open', open);
+    drawer.inert = !open;
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (icon) icon.textContent = open ? '✕' : '+';
+    if (!open && returnFocus) btn.focus();
+}
 function toggleMobileNav() {
     var drawer = document.getElementById('yy-mobile-drawer');
-    var btn = document.getElementById('yy-mobile-btn');
-    var icon = document.getElementById('yy-mobile-icon');
-    var open = drawer.classList.toggle('is-open');
-    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    icon.textContent = open ? '✕' : '+';
+    setMobileNavOpen(!(drawer && drawer.classList.contains('is-open')));
 }
-
 function closeMobileNav(returnFocus) {
     var drawer = document.getElementById('yy-mobile-drawer');
-    var btn = document.getElementById('yy-mobile-btn');
-    var icon = document.getElementById('yy-mobile-icon');
-    if (drawer && drawer.classList.contains('is-open')) {
-        drawer.classList.remove('is-open');
-        btn.setAttribute('aria-expanded', 'false');
-        icon.textContent = '+';
-        if (returnFocus && btn) {
-            btn.focus();
-        }
-    }
+    if (drawer && drawer.classList.contains('is-open')) setMobileNavOpen(false, returnFocus);
 }
-
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
         closeMobileNav(true);
